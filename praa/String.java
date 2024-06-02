@@ -1,6 +1,6 @@
 package praa;
 
-import praa.String;
+
 
 public class String {
     public static void main(String[] args) {
@@ -343,17 +343,71 @@ public class String {
      
 
  // 01/06/24    
-    int num = 5;
-    String m = Integer.toBinaryString(num);
-    StringBuilder bs = new StringBuilder();
+    // int num = 5;
+    // String m = Integer.toBinaryString(num);
+    // StringBuilder bs = new StringBuilder();
 
-    for(int i=0; i<m.length; i++){
-      int chacha = bs.append(m.charAt(i) == 1 ? 0 : 1);
+    // for(int i=0; i<m.length; i++){
+    //   int chacha = bs.append(m.charAt(i) == 1 ? 0 : 1);
 
-    }
-    int chachi = Integer.parseInt(chacha, 2);
-    return chachi;
+    // }
+    // int chachi = Integer.parseInt(chacha, 2);
+    // return chachi;
      
+    //02/06/2024
+  //   int [] num = {1,1,0,1,1,1};
+  //    int count =0;
+  //    int maxCount = 0;
+  //  for(int i=0; i<num.length; i++){
+  //   if(num[i] == 1){
+  //     count++;
+  //    maxCount = Math.max(maxCount, count);
+    
+  //   }
+  //   else {
+  //     count = 0;
+  //   }
+      
+  //  }
+  //  System.out.println(maxCount);
+
+  // String s = "1101";
+  // int countZero = 0;
+  // int CountOne =0;
+  // int maxCount = 0;
+  // int minCount =0;
+  //  for(int i =0; i<s.length(); i++){
+  //    if(s.charAt(i) == "1"){
+  //     CountOne++;
+  //     maxCount = Math.max(maxCount, CountOne);
+  //    }
+  //    countZero = 0;
+  //    else if(s.charAt(i) == "0"){
+  //     countZero++;
+  //     minCount = Math.max(minCount, countZero);
+  //     CountOne = 0;
+  //    }
+  //  }
+  //  if(maxCount > minCount){
+  //   System.out.println("true");
+  //  }
+  //  else {
+  //   System.out.println("false");
+  //  }
+
+  String s = '1001';
+  int count = 0;
+ 
+  for(int i =0; i<s.length(); i++){
+    if(s.charAt(i) == 1 && i == 0;){
+     count++;
+     count = 0;
+    }
+    else if(s.charAt(i) == 0 && i == 0){
+      return false;
+    }
+  }
+  return true;
     }
     
   }
