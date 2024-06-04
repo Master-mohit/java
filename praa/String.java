@@ -501,6 +501,57 @@ class Solution {
         return index == 0 ? "" :str1.substring(0, index);
     }
 }
+
+class Solution {
+  public int removeDuplicates(int[] nums) {
+      int i =0;
+      Arrays.sort(nums);
+      for(int j=1; j<nums.length; j++){
+          if(nums[i]!=nums[j]){
+             i++;
+             nums[i]=nums[j];
+          }
+      }
+      return i+1; 
+  }
+}
+
+class Solution {
+  public int strStr(String haystack, String needle) {
+      if (haystack.contains(needle)) {
+          return haystack.indexOf(needle);
+      } else {
+          return -1;
+      }
+  }
+}
+
+import java.util.Arrays;
+
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int[] result = new int[]{-1, -1}; 
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == target) {
+                result[0] = i;
+                break; 
+            }
+        }
+        
+        if (result[0] == -1) 
+            return result;
+        
+        for (int j = nums.length - 1; j >= 0; j--) {
+            if (nums[j] == target) {
+                result[1] = j; 
+                break; 
+            }
+        }
+        
+        return result;
+    }
+}
+
     }
     
   }
