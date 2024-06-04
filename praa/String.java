@@ -551,7 +551,26 @@ class Solution {
         return result;
     }
 }
+class Solution {
+  public int firstMissingPositive(int[] nums) {
+    HashSet<Integer>hs = new HashSet<>();
+    for(int chacha: nums){
+      hs.add(chacha);
+    }
 
+    int min =1; 
+    int max = nums.length+1;
+
+    for(int i=min; i<=max; i++){
+    if(!hs.contains(i)){
+
+      return i;
+    }
+ 
+  }
+  return -1;
+}
+}
     }
     
   }
