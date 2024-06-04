@@ -1,6 +1,7 @@
 package praa;
 
-
+import java.util.HashSet;
+import java.util.Set;
 
 public class String {
     public static void main(String[] args) {
@@ -442,6 +443,44 @@ public class String {
         if(!set.isEmpty()) ++len;
         return len;
     }
+}
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+         HashSet<Character> hs = new HashSet<>();
+        int left = 0, right = 0, max = 0;
+        while(right < s.length()){
+           char c = s.charAt(right);
+           if(!hs.contains(c)){
+             hs.add(c);
+             max = Math.max(hs.size(), max);
+             right++;
+           }
+           else {
+            hs.remove(s.charAt(left));
+            left++;
+           }
+        }
+      return max;
+    }
+}class Solution {
+  public int lengthOfLongestSubstring(String s) {
+       HashSet<Character> hs = new HashSet<>();
+      int left = 0, right = 0, max = 0;
+      while(right < s.length()){
+         char c = s.charAt(right);
+         if(!hs.contains(c)){
+           hs.add(c);
+           max = Math.max(hs.size(), max);
+           right++;
+         }
+         else {
+          hs.remove(s.charAt(left));
+          left++;
+         }
+      }
+    return max;
+  }
 }
     }
     
