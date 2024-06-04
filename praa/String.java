@@ -395,19 +395,54 @@ public class String {
   //   System.out.println("false");
   //  }
 
-  String s = '1001';
-  int count = 0;
+  // String s = '1001';
+  // int count = 0;
  
-  for(int i =0; i<s.length(); i++){
-    if(s.charAt(i) == 1 && i == 0;){
-     count++;
-     count = 0;
+  // for(int i =0; i<s.length(); i++){
+  //   if(s.charAt(i) == 1 && i == 0;){
+  //    count++;
+  //    count = 0;
+  //   }
+  //   else if(s.charAt(i) == 0 && i == 0){
+  //     return false;
+  //   }
+  // }
+  // return true;
+
+  // ListNode dummy = new ListNode(0);
+  //  ListNode prev = dummy;
+
+  //  while(head != null){
+  //   ListNode current = head;
+  //  }
+
+  //  while(prev != null && prev.next.val != null){
+  //   if(prev.val < current.val){
+  //    prev = prev.next;
+  //   }
+  //     ListNode temp = current.next;
+  //     current.next = prev.next;
+  //     prev.next = temp;
+  //  }
+  //  return dummy.next;
+
+  // 04/06/24
+   class Solution {
+    public int longestPalindrome(String s) {
+        Set<Character> set = new HashSet<>();
+        int len= 0;
+        for(char c : s.toCharArray()){
+            if(set.contains(c)){
+                set.remove(c);
+                len+=2;
+            }else{
+                set.add(c);
+            }
+        }
+        if(!set.isEmpty()) ++len;
+        return len;
     }
-    else if(s.charAt(i) == 0 && i == 0){
-      return false;
-    }
-  }
-  return true;
+}
     }
     
   }
