@@ -2,6 +2,7 @@ package praa;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import praa.String;
@@ -607,26 +608,44 @@ public class String {
 // }
 
    String words = {"bella","label","roller"};
-     List<String> result = new ArrayList<>();  // jume list String return krni h isliye humne liya list
+    //  List<String> result = new ArrayList<>();  // jume list String return krni h isliye humne liya list
 
-        for (int i = 'a'; i <= 'z'; i++) {
-            int maxCount = Integer.MAX_VALUE;
-            for (String word : words) {
-                int count = 0;
-                for (char c : word.toCharArray()) {
-                    if (c == i) {
-                        count++;
-                    }
-                }
-                maxCount = Math.min(maxCount, count);
-            }
-            if (maxCount > 0) {
-                for (int j = 0; j < maxCount; j++) {
-                    result.add(Character.toString((char) i));
-                }
-            }
+    //     for (int i = 'a'; i <= 'z'; i++) {
+    //         int maxCount = Integer.MAX_VALUE;
+    //         for (String word : words) {
+    //             int count = 0;
+    //             for (char c : word.toCharArray()) {
+    //                 if (c == i) {
+    //                     count++;
+    //                 }
+    //             }
+    //             maxCount = Math.min(maxCount, count);
+    //         }
+    //         if (maxCount > 0) {
+    //             for (int j = 0; j < maxCount; j++) {
+    //                 result.add(Character.toString((char) i));
+    //             }
+    //         }
+    //     }
+        // return result;
+
+          List<Integer> arr = new ArrayList<>();
+       ListNode curr = head;
+       while(curr!=null){
+         arr.add(curr.val);
+        curr = curr.next;
+       
+       } 
+       Collections.sort(arr);
+       curr = head;
+        int index = 0;
+        while (curr != null) {
+            curr.val = arr.get(index);
+            index++;
+            curr = curr.next;
         }
-        return result;
+
+        return head;
     }
     
   }
