@@ -1,8 +1,10 @@
 package praa;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+
+import praa.String;
 
 public class String {
     public static void main(String[] args) {
@@ -429,181 +431,202 @@ public class String {
   //  return dummy.next;
 
   // 04/06/24
-   class Solution {
-    public int longestPalindrome(String s) {
-        Set<Character> set = new HashSet<>();
-        int len= 0;
-        for(char c : s.toCharArray()){
-            if(set.contains(c)){
-                set.remove(c);
-                len+=2;
-            }else{
-                set.add(c);
-            }
-        }
-        if(!set.isEmpty()) ++len;
-        return len;
-    }
-}
+//    class Solution {
+//     public int longestPalindrome(String s) {
+//         Set<Character> set = new HashSet<>();
+//         int len= 0;
+//         for(char c : s.toCharArray()){
+//             if(set.contains(c)){
+//                 set.remove(c);
+//                 len+=2;
+//             }else{
+//                 set.add(c);
+//             }
+//         }
+//         if(!set.isEmpty()) ++len;
+//         return len;
+//     }
+// }
 
-class Solution {
-    public int lengthOfLongestSubstring(String s) {
-         HashSet<Character> hs = new HashSet<>();
-        int left = 0, right = 0, max = 0;
-        while(right < s.length()){
-           char c = s.charAt(right);
-           if(!hs.contains(c)){
-             hs.add(c);
-             max = Math.max(hs.size(), max);
-             right++;
-           }
-           else {
-            hs.remove(s.charAt(left));
-            left++;
-           }
-        }
-      return max;
-    }
-}class Solution {
-  public int lengthOfLongestSubstring(String s) {
-       HashSet<Character> hs = new HashSet<>();
-      int left = 0, right = 0, max = 0;
-      while(right < s.length()){
-         char c = s.charAt(right);
-         if(!hs.contains(c)){
-           hs.add(c);
-           max = Math.max(hs.size(), max);
-           right++;
-         }
-         else {
-          hs.remove(s.charAt(left));
-          left++;
-         }
-      }
-    return max;
-  }
-}
-class Solution {
-    public String longestCommonPrefix(String[] strs) {
-       Arrays.sort(strs);
-       String str1 = strs[0];
-       String str2 = strs[strs.length-1];
-        int index =0; 
-       while(index < str1.length()){
-        if( str1.charAt(index) ==  str2.charAt(index)){
-           index++;
-        }
-       else {
-                break;
-       }
+// class Solution {
+//     public int lengthOfLongestSubstring(String s) {
+//          HashSet<Character> hs = new HashSet<>();
+//         int left = 0, right = 0, max = 0;
+//         while(right < s.length()){
+//            char c = s.charAt(right);
+//            if(!hs.contains(c)){
+//              hs.add(c);
+//              max = Math.max(hs.size(), max);
+//              right++;
+//            }
+//            else {
+//             hs.remove(s.charAt(left));
+//             left++;
+//            }
+//         }
+//       return max;
+//     }
+// }class Solution {
+//   public int lengthOfLongestSubstring(String s) {
+//        HashSet<Character> hs = new HashSet<>();
+//       int left = 0, right = 0, max = 0;
+//       while(right < s.length()){
+//          char c = s.charAt(right);
+//          if(!hs.contains(c)){
+//            hs.add(c);
+//            max = Math.max(hs.size(), max);
+//            right++;
+//          }
+//          else {
+//           hs.remove(s.charAt(left));
+//           left++;
+//          }
+//       }
+//     return max;
+//   }
+// }
+// class Solution {
+//     public String longestCommonPrefix(String[] strs) {
+//        Arrays.sort(strs);
+//        String str1 = strs[0];
+//        String str2 = strs[strs.length-1];
+//         int index =0; 
+//        while(index < str1.length()){
+//         if( str1.charAt(index) ==  str2.charAt(index)){
+//            index++;
+//         }
+//        else {
+//                 break;
+//        }
       
-       }
-        return index == 0 ? "" :str1.substring(0, index);
-    }
-}
+//        }
+//         return index == 0 ? "" :str1.substring(0, index);
+//     }
+// }
 
-class Solution {
-  public int removeDuplicates(int[] nums) {
-      int i =0;
-      Arrays.sort(nums);
-      for(int j=1; j<nums.length; j++){
-          if(nums[i]!=nums[j]){
-             i++;
-             nums[i]=nums[j];
-          }
-      }
-      return i+1; 
-  }
-}
+// class Solution {
+//   public int removeDuplicates(int[] nums) {
+//       int i =0;
+//       Arrays.sort(nums);
+//       for(int j=1; j<nums.length; j++){
+//           if(nums[i]!=nums[j]){
+//              i++;
+//              nums[i]=nums[j];
+//           }
+//       }
+//       return i+1; 
+//   }
+// }
 
-class Solution {
-  public int strStr(String haystack, String needle) {
-      if (haystack.contains(needle)) {
-          return haystack.indexOf(needle);
-      } else {
-          return -1;
-      }
-  }
-}
+// class Solution {
+//   public int strStr(String haystack, String needle) {
+//       if (haystack.contains(needle)) {
+//           return haystack.indexOf(needle);
+//       } else {
+//           return -1;
+//       }
+//   }
+// }
 
-import java.util.Arrays;
+// import java.util.Arrays;
 
-class Solution {
-    public int[] searchRange(int[] nums, int target) {
-        int[] result = new int[]{-1, -1}; 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == target) {
-                result[0] = i;
-                break; 
-            }
-        }
+// class Solution {
+//     public int[] searchRange(int[] nums, int target) {
+//         int[] result = new int[]{-1, -1}; 
+//         for (int i = 0; i < nums.length; i++) {
+//             if (nums[i] == target) {
+//                 result[0] = i;
+//                 break; 
+//             }
+//         }
         
-        if (result[0] == -1) 
-            return result;
+//         if (result[0] == -1) 
+//             return result;
         
-        for (int j = nums.length - 1; j >= 0; j--) {
-            if (nums[j] == target) {
-                result[1] = j; 
-                break; 
-            }
-        }
+//         for (int j = nums.length - 1; j >= 0; j--) {
+//             if (nums[j] == target) {
+//                 result[1] = j; 
+//                 break; 
+//             }
+//         }
         
-        return result;
-    }
-}
-class Solution {
-  public int firstMissingPositive(int[] nums) {
-    HashSet<Integer>hs = new HashSet<>();
-    for(int chacha: nums){
-      hs.add(chacha);
-    }
+//         return result;
+//     }
+// }
+// class Solution {
+//   public int firstMissingPositive(int[] nums) {
+//     HashSet<Integer>hs = new HashSet<>();
+//     for(int chacha: nums){
+//       hs.add(chacha);
+//     }
 
-    int min =1; 
-    int max = nums.length+1;
+//     int min =1; 
+//     int max = nums.length+1;
 
-    for(int i=min; i<=max; i++){
-    if(!hs.contains(i)){
+//     for(int i=min; i<=max; i++){
+//     if(!hs.contains(i)){
 
-      return i;
-    }
+//       return i;
+//     }
  
-  }
-  return -1;
-}
-}
-import java.util.*;
+//   }
+//   return -1;
+// }
+// }
+// import java.util.*;
 
-class Solution {
-    public List<List<String>> groupAnagrams(String[] strs) {
-        // HashMap to store sorted string as key and list of anagrams as value
-        HashMap<String, List<String>> map = new HashMap<>(); 
+// class Solution {
+//     public List<List<String>> groupAnagrams(String[] strs) {
+//         // HashMap to store sorted string as key and list of anagrams as value
+//         HashMap<String, List<String>> map = new HashMap<>(); 
         
         
-        if(strs == null || strs.length == 0){
-            return new ArrayList<>();
-        }
+//         if(strs == null || strs.length == 0){
+//             return new ArrayList<>();
+//         }
         
        
-        for(String str : strs){ 
+//         for(String str : strs){ 
            
-            char [] ch = str.toCharArray(); 
-            Arrays.sort(ch); 
-            String sorted = new String(ch);
+//             char [] ch = str.toCharArray(); 
+//             Arrays.sort(ch); 
+//             String sorted = new String(ch);
             
 
-            if(!map.containsKey(sorted)){
-                map.put(sorted, new ArrayList<>());
-            }
+//             if(!map.containsKey(sorted)){
+//                 map.put(sorted, new ArrayList<>());
+//             }
             
             
-            map.get(sorted).add(str); 
-        }
+//             map.get(sorted).add(str); 
+//         }
         
       
-        return new ArrayList<>(map.values());
-    }
-}
+//         return new ArrayList<>(map.values());
+//     }
+// }
 
+   String words = {"bella","label","roller"};
+     List<String> result = new ArrayList<>();  // jume list String return krni h isliye humne liya list
+
+        for (int i = 'a'; i <= 'z'; i++) {
+            int maxCount = Integer.MAX_VALUE;
+            for (String word : words) {
+                int count = 0;
+                for (char c : word.toCharArray()) {
+                    if (c == i) {
+                        count++;
+                    }
+                }
+                maxCount = Math.min(maxCount, count);
+            }
+            if (maxCount > 0) {
+                for (int j = 0; j < maxCount; j++) {
+                    result.add(Character.toString((char) i));
+                }
+            }
+        }
+        return result;
     }
     
   }
