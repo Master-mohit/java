@@ -8,7 +8,7 @@ import java.util.List;
 import praa.String;
 
 public class String {
-    public static void main(String[] args) {
+    public static void main(int[] args) {
     //     StringBuilder bs = new StringBuilder(" ");
         
     //     String s = "mohit nougraiya";
@@ -607,7 +607,7 @@ public class String {
 //     }
 // }
 
-   String words = {"bella","label","roller"};
+  //  String words = {"bella","label","roller"};
     //  List<String> result = new ArrayList<>();  // jume list String return krni h isliye humne liya list
 
     //     for (int i = 'a'; i <= 'z'; i++) {
@@ -629,23 +629,36 @@ public class String {
     //     }
         // return result;
 
-          List<Integer> arr = new ArrayList<>();
-       ListNode curr = head;
-       while(curr!=null){
-         arr.add(curr.val);
-        curr = curr.next;
+      //     List<Integer> arr = new ArrayList<>();
+      //  ListNode curr = head;
+      //  while(curr!=null){
+      //    arr.add(curr.val);
+      //   curr = curr.next;
        
-       } 
-       Collections.sort(arr);
-       curr = head;
-        int index = 0;
-        while (curr != null) {
-            curr.val = arr.get(index);
-            index++;
-            curr = curr.next;
-        }
+      //  } 
+      //  Collections.sort(arr);
+      //  curr = head;
+      //   int index = 0;
+      //   while (curr != null) {
+      //       curr.val = arr.get(index);
+      //       index++;
+      //       curr = curr.next;
+      //   }
 
-        return head;
+      //   return head;
+
+      //06/05/24
+      class Solution {
+        public boolean isPowerOfTwo(int n) {
+           if (n <= 0){
+            return false;
+           }
+           while(n % 2 == 0){
+            n = n / 2;
+           }
+           return n == 1;
+        }
+    }
     }
     
   }
