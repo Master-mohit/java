@@ -661,15 +661,40 @@ public class String {
     //     }
     // }
 
-      int n = 11;
-      int count = 0;
-     while(n != 0){
-      if(n % 2 == 1){
-        count++;
-      }
+    //   int n = 11;
+    //   int count = 0;
+    //  while(n != 0){
+    //   if(n % 2 == 1){
+    //     count++;
+    //   }
 
-     n = n / 2 ;
-     }
-     return count;
+    //  n = n / 2 ;
+    //  }
+    //  return count;
+
+    // int n = 91;
+    // while(n <= 0){
+    //  if(n% 3 == 0){
+    //  }
+     
+
+    // 07/05/24
+    String dictionary = {"cat","bat","rat"};
+    String sentence = "the cattle was rattled by the battery"; // "the" "cattle , "was"....   // splted
+
+    String [] splited = sentence.split(" ");
+      for(int i =0; i<dictionary.size(); i++){
+        for(int j =0; j<splited.length; j++){
+        if(splited[j].startsWith(dictionary.get(i))){
+                       splited[j] = dictionary.get(i);
+        }
+        }
+
+      }
+      StringBuilder sb = new StringBuilder();
+      for(int k =0; k<splited.length-1; k++){
+        sb.append(splited[k] + " ");
+      }
+      return sb.toString();
     }
   }
