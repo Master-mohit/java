@@ -4,7 +4,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import praa.String;
 
@@ -679,22 +681,45 @@ public class String {
      
 
     // 07/05/24
-    String dictionary = {"cat","bat","rat"};
-    String sentence = "the cattle was rattled by the battery"; // "the" "cattle , "was"....   // splted
+    // String dictionary = {"cat","bat","rat"};
+    // String sentence = "the cattle was rattled by the battery"; // "the" "cattle , "was"....   // splted
 
-    String [] splited = sentence.split(" ");
-      for(int i =0; i<dictionary.size(); i++){
-        for(int j =0; j<splited.length; j++){
-        if(splited[j].startsWith(dictionary.get(i))){
-                       splited[j] = dictionary.get(i);
-        }
-        }
+    // String [] splited = sentence.split(" ");
+    //   for(int i =0; i<dictionary.size(); i++){
+    //     for(int j =0; j<splited.length; j++){
+    //     if(splited[j].startsWith(dictionary.get(i))){
+    //                    splited[j] = dictionary.get(i);
+    //     }
+    //     }
 
-      }
-      StringBuilder sb = new StringBuilder();
-      for(int k =0; k<splited.length-1; k++){
-        sb.append(splited[k] + " ");
-      }
-      return sb.toString();
+    //   }
+    //   StringBuilder sb = new StringBuilder();
+    //   for(int k =0; k<splited.length-1; k++){
+    //     sb.append(splited[k] + " ");
+    //   }
+    //   return sb.toString();
+
+//     08/05/24
+//     class Solution {
+//     public boolean checkSubarraySum(int[] nums, int k) {
+//         Map<Integer, Integer> map = new HashMap<>();
+//         map.put(0, -1);
+//         int sum = 0;
+//         for (int i = 0; i < nums.length; i++) {
+//             sum += nums[i];
+//             if (k != 0) {
+//                 sum %= k;
+//             }
+//             if (map.containsKey(sum)) {
+//                 if (i - map.get(sum) > 1) {
+//                     return true;
+//                 }
+//             } else {
+//                 map.put(sum, i);
+//             }
+//         }
+//         return false;
+//     }
+// }
     }
   }
