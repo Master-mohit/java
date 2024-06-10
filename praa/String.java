@@ -1,14 +1,7 @@
 package praa;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import praa.String;
+import java.util.Collection;
 
 public class String {
     public static void main(int[] args) {
@@ -739,5 +732,22 @@ public class String {
 //       return count;
 //   }
 // }
+   
+  // 10/05/24...
+  //  int [] heights = {1,1,4,2,1,3};
+  //  ArrayList<Integer> list = new ArrayList<>();
+  //  for(int i=0; i<heights.length; i++){
+  //    list.add(heights[i]);
+  //  }
+  //  Collection.sort(list);
+  //  int count = 0;
+
+  //  for(int i=0; i<heights; i++){
+  //   if(heights[i] != list.get(i));
+  //   count++;
+  //  }
+  //  return count;
+
+
     }
   }
