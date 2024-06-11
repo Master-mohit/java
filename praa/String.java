@@ -1,6 +1,7 @@
 package praa;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class String {
@@ -748,6 +749,33 @@ public class String {
   //  }
   //  return count;
 
+  // 11/05/24
+  //     ArrayList<Integer> list = new ArrayList<>();
+         
+
+  //        int n = arr1.length;
+  //        int n2 = arr2.length;
+       
+  //       for(int i=0;i<n2;i++){
+
+  //           for(int j=0;j<n;j++){
+  //           if(arr2[i]==arr1[j]){
+  //               list.add(arr1[j]);
+  //               arr1[j] = -1;
+  //           }
+  //           }
+  //           }
+  //           Arrays.sort(arr1);
+  //               for(int i=0;i<n;i++){
+
+  //                   if(arr1[i]!=-1){
+  //                       list.add(arr1[i]);
+  //                   }
+  //               }
+  //                   for(int i=0;i<n;i++){
+  //           arr1[i] = list.get(i);
+  //       }
+  //       return arr1;
 
     }
   }
