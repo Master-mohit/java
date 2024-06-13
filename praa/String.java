@@ -807,5 +807,14 @@ int seats = {3,1,5};
   total += Math.abs(seats[i]  -  students[i]);
  }
   return total;
+
+  int s1 = 1 , s2=1;
+  for(int i=2; i<=n; i++)
+  {
+   int temp=s2;
+   s2= s1+s2;
+   s1=temp;
+  }
+  return s2;
     }
   }
