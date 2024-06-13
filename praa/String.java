@@ -804,7 +804,7 @@ int seats = {3,1,5};
  Arrays.sort(students);
 
  for(int i=0; i<seats.length; i++){
-  total += Maths.abs(seats[i]  -  students[i]);
+  total += Math.abs(seats[i]  -  students[i]);
  }
   return total;
     }
