@@ -797,5 +797,15 @@ public class String {
 //   nums[start]=nums[end];
 //   nums[end]= temp;
 
+int seats = {3,1,5};
+ int students = {2,7,4};
+  int total = 0;
+ Arrays.sort(seats);
+ Arrays.sort(students);
+
+ for(int i=0; i<seats.length; i++){
+  total += Maths.abs(seats[i]  -  students[i]);
+ }
+  return total;
     }
   }
