@@ -797,24 +797,38 @@ public class String {
 //   nums[start]=nums[end];
 //   nums[end]= temp;
 
-int seats = {3,1,5};
- int students = {2,7,4};
-  int total = 0;
- Arrays.sort(seats);
- Arrays.sort(students);
+// int seats = {3,1,5};
+//  int students = {2,7,4};
+//   int total = 0;
+//  Arrays.sort(seats);
+//  Arrays.sort(students);
 
- for(int i=0; i<seats.length; i++){
-  total += Math.abs(seats[i]  -  students[i]);
- }
-  return total;
+//  for(int i=0; i<seats.length; i++){
+//   total += Math.abs(seats[i]  -  students[i]);
+//  }
+//   return total;
 
-  int s1 = 1 , s2=1;
-  for(int i=2; i<=n; i++)
-  {
-   int temp=s2;
-   s2= s1+s2;
-   s1=temp;
+//   int s1 = 1 , s2=1;
+//   for(int i=2; i<=n; i++)
+//   {
+//    int temp=s2;
+//    s2= s1+s2;
+//    s1=temp;
+//   }
+//   return s2;
+
+  int nums = {1,2,2};
+  Arrays.sort(nums);
+  int count =0;
+ for(int i=1; i<nums.length; i++){
+  if(nums[i] <= nums[i-1]){
+   int increment = nums[i-1]+1 - nums[i];
+   nums[i] = nums[i-1] + 1;
+   count += increment;
+  
   }
-  return s2;
+ 
+ }
+ return count;
     }
   }
