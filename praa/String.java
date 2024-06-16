@@ -817,45 +817,63 @@ public class String {
 //   }
 //   return s2;
 
-  int nums = {1,2,2};
-  Arrays.sort(nums);
-  int count =0;
- for(int i=1; i<nums.length; i++){
-  if(nums[i] <= nums[i-1]){
-   int increment = nums[i-1]+1 - nums[i];
-   nums[i] = nums[i-1] + 1;
-   count += increment;
+//   int nums = {1,2,2};
+//   Arrays.sort(nums);
+//   int count =0;
+//  for(int i=1; i<nums.length; i++){
+//   if(nums[i] <= nums[i-1]){
+//    int increment = nums[i-1]+1 - nums[i];
+//    nums[i] = nums[i-1] + 1;
+//    count += increment;
   
-  }
+//   }
  
- }
- return count;
+//  }
+//  return count;
 
 
 
-      Map<Integer,Integer> a=new HashMap<>();
-      for(int i=0;i<profits.length;i++){
-          a.put(profits[i],capital[i]);
+//       Map<Integer,Integer> a=new HashMap<>();
+//       for(int i=0;i<profits.length;i++){
+//           a.put(profits[i],capital[i]);
+//       }
+//       if(k==100000 && w==100000 && profits[0]==10000) return 1000100000;
+//       if(k==100000 && w==100000 && profits[0]==8013) return 595057;
+//       if(k==100000 && w==1000000000 && profits[0]==10000) return 2000000000;
+//       Arrays.sort(profits);
+//       int x=k;
+//       int total=w;
+//       boolean [] b=new boolean[profits.length];
+//       while(x>0){
+//          for(int i=profits.length-1;i>=0;i--){
+//             int c=a.get(profits[i]);
+//             if(c<=total && ! b[i]){
+//               total+=profits[i];
+//               b[i]=true;
+//               break;
+//             }
+//          }
+//          x--;
+//       }
+//       return total;
+
+
+      long missing = 1;
+      int patches = 0;
+      int index = 0;
+
+      while (missing <= n) {
+          if (index < nums.length && nums[index] <= missing) {
+              missing += nums[index];
+              index++;
+          } else {
+              missing += missing;
+              patches++;
+          }
       }
-      if(k==100000 && w==100000 && profits[0]==10000) return 1000100000;
-      if(k==100000 && w==100000 && profits[0]==8013) return 595057;
-      if(k==100000 && w==1000000000 && profits[0]==10000) return 2000000000;
-      Arrays.sort(profits);
-      int x=k;
-      int total=w;
-      boolean [] b=new boolean[profits.length];
-      while(x>0){
-         for(int i=profits.length-1;i>=0;i--){
-            int c=a.get(profits[i]);
-            if(c<=total && ! b[i]){
-              total+=profits[i];
-              b[i]=true;
-              break;
-            }
-         }
-         x--;
-      }
-      return total;
+
+      return patches;
   }
 }
+ 
     
