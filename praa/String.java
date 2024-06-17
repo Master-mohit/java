@@ -832,7 +832,7 @@ public class String {
 //  return count;
 
 
-
+// 15/06/24
 //       Map<Integer,Integer> a=new HashMap<>();
 //       for(int i=0;i<profits.length;i++){
 //           a.put(profits[i],capital[i]);
@@ -857,22 +857,37 @@ public class String {
 //       }
 //       return total;
 
+  // 16/06/24
+      // long missing = 1;
+      // int patches = 0;
+      // int index = 0;
 
-      long missing = 1;
-      int patches = 0;
-      int index = 0;
+      // while (missing <= n) {
+      //     if (index < nums.length && nums[index] <= missing) {
+      //         missing += nums[index];
+      //         index++;
+      //     } else {
+      //         missing += missing;
+      //         patches++;
+      //     }
+      // }
 
-      while (missing <= n) {
-          if (index < nums.length && nums[index] <= missing) {
-              missing += nums[index];
-              index++;
-          } else {
-              missing += missing;
-              patches++;
-          }
-      }
+      // return patches;
 
-      return patches;
+      // 17/06/24
+
+      // long left = 0;
+      // long right = (long)Math.sqrt(c);
+      // while(left<=right){
+      //     long sum = left*left + right * right;
+      //     if(sum==c){
+      //         return true;
+      //     }else if(sum<c){
+      //         left++;
+      //     }else{
+      //         right--;
+      //     }
+      // }
   }
 }
  
