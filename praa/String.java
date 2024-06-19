@@ -1021,6 +1021,25 @@ public class String {
                       }
                   }
                   return false;  
+
+
+                  Arrays.sort(arr);
+        
+       
+                  int n = arr.length , start = 1 ;
+                  long sum = arr[n-1];
+                  int i = n-2;
+                 
+                      while(k > 1){
+                          if(arr[i] - start > 0)
+                          sum = sum + arr[i] - start;
+                          i--;
+                          start++;
+                          k--;
+                      }
+                  
+                  return sum;
+
         }
 }
  
