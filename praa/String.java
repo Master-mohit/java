@@ -1040,6 +1040,50 @@ public class String {
                   
                   return sum;
 
+                20/06/24
+                Arrays.sort(nums);
+                int min = 1;
+                int max = nums[nums.length - 1] - nums[0];
+                int result = 0;
+                while(min <= max)
+                {
+                 int mid = min + (max - min) / 2;
+                 if(possible(mid,nums,m))
+                 {
+                   result = mid;
+                   min = mid + 1;
+                 }
+                 else
+                 {
+                   max = mid - 1;
+                 }
+                } 
+         
+                return result;
+             }
+         
+             public boolean possible(int mid , int[] nums , int m)
+             {
+               int prev = nums[0];
+               int count = 1;
+               for(int i=1;i<nums.length;i++)
+               {
+                 int curr = nums[i];
+                 if(curr - prev >= mid)
+                 {
+                   count++;
+                   prev = curr;
+                 }
+               if(count == m)
+               {
+                 break;
+               }
+               }
+         
+               
+         
+               return count == m;
+
         }
 }
  
