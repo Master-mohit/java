@@ -983,106 +983,144 @@ public class String {
     
             // return maxProfit;
 
-                  19/06/24 
+            //       19/06/24 
           
-                  if ((long)m * k > bloomDay.length) {
-                      return -1;
-                  }
-                  int min = Arrays.stream(bloomDay).min().getAsInt();
-                  int max = Arrays.stream(bloomDay).max().getAsInt();
+            //       if ((long)m * k > bloomDay.length) {
+            //           return -1;
+            //       }
+            //       int min = Arrays.stream(bloomDay).min().getAsInt();
+            //       int max = Arrays.stream(bloomDay).max().getAsInt();
           
-                  while (min < max) {
-                      int mid = min + (max - min) / 2;
-                      if (canGather(bloomDay, m, k, mid)) {
-                          max = mid;
-                      } else {
-                          min = mid + 1;
-                      }
-                  }
+            //       while (min < max) {
+            //           int mid = min + (max - min) / 2;
+            //           if (canGather(bloomDay, m, k, mid)) {
+            //               max = mid;
+            //           } else {
+            //               min = mid + 1;
+            //           }
+            //       }
           
-                  return min;
-              }
+            //       return min;
+            //   }
           
-              private boolean canGather(int[] bloomDay, int m, int k, int min) {
-                  int bouquets = 0;
-                  int flowers = 0;
-                  for (int day : bloomDay) {
-                      if (day <= min) {
-                          flowers++;
-                          if (flowers == k) {
-                              bouquets++;
-                              flowers = 0;
-                              if (bouquets == m) {
-                                  return true;
-                              }
-                          }
-                      } else {
-                          flowers = 0;
-                      }
-                  }
-                  return false;  
+            //   private boolean canGather(int[] bloomDay, int m, int k, int min) {
+            //       int bouquets = 0;
+            //       int flowers = 0;
+            //       for (int day : bloomDay) {
+            //           if (day <= min) {
+            //               flowers++;
+            //               if (flowers == k) {
+            //                   bouquets++;
+            //                   flowers = 0;
+            //                   if (bouquets == m) {
+            //                       return true;
+            //                   }
+            //               }
+            //           } else {
+            //               flowers = 0;
+            //           }
+            //       }
+            //       return false;  
 
 
-                  Arrays.sort(arr);
+            //       Arrays.sort(arr);
         
        
-                  int n = arr.length , start = 1 ;
-                  long sum = arr[n-1];
-                  int i = n-2;
+            //       int n = arr.length , start = 1 ;
+            //       long sum = arr[n-1];
+            //       int i = n-2;
                  
-                      while(k > 1){
-                          if(arr[i] - start > 0)
-                          sum = sum + arr[i] - start;
-                          i--;
-                          start++;
-                          k--;
-                      }
+            //           while(k > 1){
+            //               if(arr[i] - start > 0)
+            //               sum = sum + arr[i] - start;
+            //               i--;
+            //               start++;
+            //               k--;
+            //           }
                   
-                  return sum;
+            //       return sum;
 
-                20/06/24
-                Arrays.sort(nums);
-                int min = 1;
-                int max = nums[nums.length - 1] - nums[0];
-                int result = 0;
-                while(min <= max)
-                {
-                 int mid = min + (max - min) / 2;
-                 if(possible(mid,nums,m))
-                 {
-                   result = mid;
-                   min = mid + 1;
-                 }
-                 else
-                 {
-                   max = mid - 1;
-                 }
-                } 
+            //     20/06/24
+            //     Arrays.sort(nums);
+            //     int min = 1;
+            //     int max = nums[nums.length - 1] - nums[0];
+            //     int result = 0;
+            //     while(min <= max)
+            //     {
+            //      int mid = min + (max - min) / 2;
+            //      if(possible(mid,nums,m))
+            //      {
+            //        result = mid;
+            //        min = mid + 1;
+            //      }
+            //      else
+            //      {
+            //        max = mid - 1;
+            //      }
+            //     } 
          
-                return result;
-             }
+            //     return result;
+            //  }
          
-             public boolean possible(int mid , int[] nums , int m)
-             {
-               int prev = nums[0];
-               int count = 1;
-               for(int i=1;i<nums.length;i++)
-               {
-                 int curr = nums[i];
-                 if(curr - prev >= mid)
-                 {
-                   count++;
-                   prev = curr;
-                 }
-               if(count == m)
-               {
+            //  public boolean possible(int mid , int[] nums , int m)
+            //  {
+            //    int prev = nums[0];
+            //    int count = 1;
+            //    for(int i=1;i<nums.length;i++)
+            //    {
+            //      int curr = nums[i];
+            //      if(curr - prev >= mid)
+            //      {
+            //        count++;
+            //        prev = curr;
+            //      }
+            //    if(count == m)
+            //    {
+            //      break;
+            //    }
+            //    }
+         
+            //    return count == m;
+
+         21/06/24
+         int start = 0;
+         int end = minutes-1;
+         int[] pre = new int[customers.length];
+         pre[0] = grumpy[0]==0?customers[0]:0;
+ 
+         for(int i=1;i<customers.length;i++){
+             pre[i] = pre[i-1] + (grumpy[i]==0?customers[i]:0);
+             System.out.println(pre[i]);
+         }
+         int ans = 0;
+         int maxWid = 0;
+ 
+         for(int i=0;i<minutes;i++){
+             maxWid+=customers[i];
+         }
+ 
+         ans = Integer.max(ans,maxWid+pre[customers.length-1]-pre[end]);
+ 
+         while(end<customers.length){
+ 
+             end++;
+             
+             if(end==customers.length){
+                 
                  break;
-               }
-               }
-         
-               
-         
-               return count == m;
+             }
+                 maxWid+=customers[end];
+             
+             maxWid-=customers[start];
+             start++;
+             
+             
+ 
+             ans = Integer.max(ans,maxWid+(start>0?pre[start-1]:0)+pre[customers.length-1]-pre[end]);
+ 
+         }
+ 
+         return ans;
 
         }
 }
