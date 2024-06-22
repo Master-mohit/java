@@ -1082,45 +1082,45 @@ public class String {
          
             //    return count == m;
 
-         21/06/24
-         int start = 0;
-         int end = minutes-1;
-         int[] pre = new int[customers.length];
-         pre[0] = grumpy[0]==0?customers[0]:0;
+        //  21/06/24
+        //  int start = 0;
+        //  int end = minutes-1;
+        //  int[] pre = new int[customers.length];
+        //  pre[0] = grumpy[0]==0?customers[0]:0;
  
-         for(int i=1;i<customers.length;i++){
-             pre[i] = pre[i-1] + (grumpy[i]==0?customers[i]:0);
-             System.out.println(pre[i]);
-         }
-         int ans = 0;
-         int maxWid = 0;
+        //  for(int i=1;i<customers.length;i++){
+        //      pre[i] = pre[i-1] + (grumpy[i]==0?customers[i]:0);
+        //      System.out.println(pre[i]);
+        //  }
+        //  int ans = 0;
+        //  int maxWid = 0;
  
-         for(int i=0;i<minutes;i++){
-             maxWid+=customers[i];
-         }
+        //  for(int i=0;i<minutes;i++){
+        //      maxWid+=customers[i];
+        //  }
  
-         ans = Integer.max(ans,maxWid+pre[customers.length-1]-pre[end]);
+        //  ans = Integer.max(ans,maxWid+pre[customers.length-1]-pre[end]);
  
-         while(end<customers.length){
+        //  while(end<customers.length){
  
-             end++;
+        //      end++;
              
-             if(end==customers.length){
+        //      if(end==customers.length){
                  
-                 break;
-             }
-                 maxWid+=customers[end];
+        //          break;
+        //      }
+        //          maxWid+=customers[end];
              
-             maxWid-=customers[start];
-             start++;
+        //      maxWid-=customers[start];
+        //      start++;
              
              
  
-             ans = Integer.max(ans,maxWid+(start>0?pre[start-1]:0)+pre[customers.length-1]-pre[end]);
+        //      ans = Integer.max(ans,maxWid+(start>0?pre[start-1]:0)+pre[customers.length-1]-pre[end]);
  
-         }
+        //  }
  
-         return ans;
+        //  return ans;
 
         }
 }
