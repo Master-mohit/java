@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.tree.TreeNode;
+
 public class subarray {
     public static void main(String[] args) {
         // 22/06/24
@@ -134,6 +139,36 @@ class Solution {
     }
 }
 
+// 26/06/24
+
+// class Solution {
+
+//     public TreeNode balanceBST(TreeNode root) {
+//         List<Integer> list = new ArrayList<>();
+//         inorderTraversal(root, list);
+
+//         return createBalancedBST(list, 0, list.size() - 1);
+//     }
+
+//     private void inorderTraversal(TreeNode root, List<Integer> list) {
+//         if (root == null) return;
+//         inorderTraversal(root.left, list);
+//         list.add(root.val);
+//         inorderTraversal(root.right, list);
+//     }
+
+//     private TreeNode createBalancedBST(List<Integer> list, int start, int end) {
+//         if (start > end)    return null;
+
+//         int mid = start + (end - start) / 2;
+
+//         TreeNode leftSubTree = createBalancedBST(list, start, mid - 1);
+//         TreeNode rightSubTree = createBalancedBST(list, mid + 1, end);
+
+//         TreeNode node = new TreeNode(list.get(mid), leftSubTree, rightSubTree);
+//         return node;
+//     }
+// }
 
     }
 }
