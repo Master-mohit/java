@@ -169,14 +169,25 @@ class Solution {
 //         return node;
 //     }
 // }
-
-
-           if (edges[0][0] == edges[1][0] || edges[0][0] == edges[1][1]) {
-            return edges[0][0];
-        } else {
-            return edges[0][1];
-        }
+                 
+        //    27/06/24
+        //    if (edges[0][0] == edges[1][0] || edges[0][0] == edges[1][1]) {
+        //     return edges[0][0];
+        // } else {
+        //     return edges[0][1];
+        // }
       
+        // 28/06/24
+        // long[] counts = new long[n];
+        // for(int[] road : roads){
+        //     counts[road[0]]++;
+        //     counts[road[1]]++;
+        // }
+        // int label = 1;
+        // long res=0;
+        // Arrays.sort(counts);
+        // for(long count : counts) res+=count*label++;
+        // return res;
     
 
     }
