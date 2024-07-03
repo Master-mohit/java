@@ -227,7 +227,25 @@ class Solution {
     //             if(oddCount == 3)return true;
     //         }
     //         return false;
+
     //     }
-    }
+
+
+    // class Solution {
+    //     public int minDifference(int[] nums) {
+    //         int n=nums.length;
+    //         Arrays.sort(nums);
+            
+    //         if(nums.length<5) return 0;
+    
+    //         int m = nums[n-1]-nums[3];
+    //         int l = nums[n-2]-nums[2];
+    //         int k = nums[n-3]-nums[1];
+    //         int j = nums[n-4]-nums[0];
+    
+    //         return Math.min(Math.min(m, l), Math.min(k, j));
+    //     }
+    // }
+    // }
         }
     }
