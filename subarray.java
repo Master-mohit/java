@@ -247,5 +247,41 @@ class Solution {
     //     }
     // }
     // }
+
+    // class Solution {
+    //     public int[] nodesBetweenCriticalPoints(ListNode head) 
+    //     {
+    //         ArrayList<Integer> ind=new ArrayList<>();
+    //         int res[]=new int[2];
+    //         Arrays.fill(res,-1);
+    //         int iterate=1;
+    //         int val=head.val;
+    //         head=head.next;
+    //         while(head.next!=null)
+    //         {
+    //             if((head.val>val&&head.val>head.next.val)||(head.val<val&&head.val<head.next.val))
+    //             {
+    //                ind.add(iterate);
+    //             }
+    //             val=head.val;
+    //             head=head.next;
+    //             iterate++;
+    //         }
+    //          if(ind.size()<2)
+    //         {
+    //             return res;
+    //         }
+    //         int max=ind.get(ind.size()-1)-ind.get(0);
+    //         int min=(int)1e9;
+    //         for(int i=1;i<ind.size();i++)
+    //         {
+    //             min=Math.min(min,ind.get(i)-ind.get(i-1));
+    //         }
+    //         res[0]=min;
+    //         res[1]=max;
+    //         return res;
+    //     }
+    // }
+    
         }
     }
