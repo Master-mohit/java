@@ -282,6 +282,21 @@ class Solution {
     //         return res;
     //     }
     // }
+
+    
+// class Solution {
+//     public int numWaterBottles(int numBottles, int numExchange) {
+//         int total = numBottles;
+//         int empty = numBottles;
+
+//         while (empty >= numExchange) {
+//             int full = empty / numExchange;
+//             total += full;
+//             empty = empty % numExchange + full;
+//         }
+//         return total;
+//     }
+// }
     
         }
     }
