@@ -298,16 +298,38 @@ class Solution {
 //     }
 // }
 
-class Solution {
-    public int findTheWinner(int n, int k) {
-     int ans=0,i=2;
-     while(i<=n){
-        ans=(ans+k)%i;
-        i++;
-     } 
-     return (ans+1);
-    }
-}
+// class Solution {
+//     public int findTheWinner(int n, int k) {
+//      int ans=0,i=2;
+//      while(i<=n){
+//         ans=(ans+k)%i;
+//         i++;
+//      } 
+//      return (ans+1);
+//     }
+// }
+
+// class Solution {
+//     public double averageWaitingTime(int[][] customers) {
+//         int i,j,a=customers[0][0],b;
+//         double c=0;
+//         int n=customers.length;
+//         for(i=0;i<n;i++){
+//             b=a+customers[i][1];
+//             c=c+b-customers[i][0];
+//             if(i!=n-1){
+//             if(b>=customers[i+1][0]){
+//                 a=b;
+//             }
+//             else
+//             a=customers[i+1][0];
+//             }
+
+
+//         }
+//         return c/n;
+//     }
+// }
     
         }
     }
