@@ -330,6 +330,33 @@ class Solution {
 //         return c/n;
 //     }
 // }
-    
+// class Solution {
+//     public int minOperations(String[] logs) {
+//         Stack<String> st=new Stack<>();
+//         for(String str:logs){
+//             if(str.equals("../")){
+//                 if(!st.isEmpty()){
+//                     st.pop();
+//                 }
+//                 else{
+//                     continue;
+//                 }
+//             }
+//             else if(str.equals("./")){
+//                 continue;
+//             }
+//             else{
+//                 st.push(str);
+//             }
+//         }
+//         int count=0;
+//         while(!st.isEmpty()){
+//             st.pop();
+//             count++;
+//         }
+//         return count;
+        
+//     }
+// }
         }
     }
