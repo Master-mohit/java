@@ -358,5 +358,32 @@ class Solution {
         
 //     }
 // }
+
+// class Solution {
+//     public String reverseParentheses(String s) {
+//         Stack<Character> st = new Stack<>();
+//         for(int i = 0;i<s.length();i++){
+// if(s.charAt(i) ==')'){
+//     ArrayList<Character> arr = new ArrayList<>();
+//  while(st.peek()!='('){
+// arr.add(st.pop());
+//  }
+//  st.pop();
+//  for(int j = 0;j<arr.size();j++){
+//     st.push(arr.get(j));
+//  }
+// }
+// else {
+//     st.push(s.charAt(i));
+// }
+
+//         }
+//         String ans = "";
+//         while(st.size()>0){
+//             ans = st.pop()+ans;
+//         }
+//         return ans;
+//     }
+// }
         }
     }
