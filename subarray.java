@@ -385,5 +385,46 @@ class Solution {
 //         return ans;
 //     }
 // }
+
+// class Solution {
+//     public int maximumGain(String s, int x, int y) {
+//         int totalScore = 0;
+//         String highPriorityPair, lowPriorityPair;
+//         if (x > y) {
+//             highPriorityPair = "ab";
+//             lowPriorityPair = "ba";
+//         } else {
+//             highPriorityPair = "ba";
+//             lowPriorityPair = "ab";
+//         }
+
+//         String stage1 = removeSubstring(s, highPriorityPair);
+//         totalScore = (s.length() - stage1.length()) / 2 * Math.max(x, y);
+//         String stage2 = removeSubstring(stage1, lowPriorityPair);
+//         totalScore = totalScore + (stage1.length() - stage2.length()) / 2 * Math.min(x, y);
+
+//         return totalScore;
+//     }
+
+//     private String removeSubstring(String s, String pair) {
+//         Stack<Character> targetPair = new Stack<>();
+//         StringBuilder result = new StringBuilder();
+
+//         for (Character c : s.toCharArray()) {
+//             if (!targetPair.isEmpty() && c == pair.charAt(1) && targetPair.peek() == pair.charAt(0)) {
+//                 targetPair.pop();
+//             } else {
+//                 targetPair.push(c);
+//             }
+//         }
+
+//         for (char c : targetPair) {
+//             result.append(c);
+//         }
+
+//         return result.toString();
+//     }
+
+// }
         }
     }
