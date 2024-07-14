@@ -427,45 +427,106 @@ class Solution {
 
 // }
 
-class Solution {
-    public List<Integer> survivedRobotsHealths(int[] positions, int[] healths, String directions) {
-        List<Integer>list = new ArrayList<>();
-        for(int i  = 0;i<positions.length;i++){
-            list.add(i);
-        }
-        Collections.sort(list,(a,b)->Integer.compare(
-           positions[a], positions[b]));
-        Stack<Integer> stck = new Stack<>();
-        for (var l : list) {
-            if (directions.charAt(l) == 'L') {
-                while (!stck.isEmpty()) {
-                    int temp = stck.peek();
-                    if (healths[l] == healths[temp]) {
-                        healths[l] = 0;
-                        healths[temp] = 0;
-                        stck.pop();
-                        break;
-                    } else if (healths[l] > healths[temp]) {
-                        healths[l]--;
-                        healths[temp] = 0;
-                        stck.pop();
-                    } else {
-                        healths[l] = 0;
-                        healths[temp]--;
-                        break;
-                    }
-                }
-            } else {
-                stck.push(l); 
-            }
-        }
-        List<Integer> res = new ArrayList<>();
-        for (var h : healths) {
-            if (h != 0)
-                res.add(h);
-        }
-        return res;
-    }
-}
+// class Solution {
+//     public List<Integer> survivedRobotsHealths(int[] positions, int[] healths, String directions) {
+//         List<Integer>list = new ArrayList<>();
+//         for(int i  = 0;i<positions.length;i++){
+//             list.add(i);
+//         }
+//         Collections.sort(list,(a,b)->Integer.compare(
+//            positions[a], positions[b]));
+//         Stack<Integer> stck = new Stack<>();
+//         for (var l : list) {
+//             if (directions.charAt(l) == 'L') {
+//                 while (!stck.isEmpty()) {
+//                     int temp = stck.peek();
+//                     if (healths[l] == healths[temp]) {
+//                         healths[l] = 0;
+//                         healths[temp] = 0;
+//                         stck.pop();
+//                         break;
+//                     } else if (healths[l] > healths[temp]) {
+//                         healths[l]--;
+//                         healths[temp] = 0;
+//                         stck.pop();
+//                     } else {
+//                         healths[l] = 0;
+//                         healths[temp]--;
+//                         break;
+//                     }
+//                 }
+//             } else {
+//                 stck.push(l); 
+//             }
+//         }
+//         List<Integer> res = new ArrayList<>();
+//         for (var h : healths) {
+//             if (h != 0)
+//                 res.add(h);
+//         }
+//         return res;
+//     }
+// }
+
+// import java.util.*;
+
+// class Solution {
+//     public String countOfAtoms(String formula) {
+//         Stack<Map<String, Integer>> stack = new Stack<>();
+//         stack.push(new HashMap<>());
+//         int i = 0;
+//         int n = formula.length();
+        
+//         while (i < n) {
+//             if (formula.charAt(i) == '(') {
+//                 stack.push(new HashMap<>());
+//                 i++;
+//             } else if (formula.charAt(i) == ')') {
+//                 Map<String, Integer> currMap = stack.pop();
+//                 i++;
+//                 StringBuilder m = new StringBuilder();
+//                 while (i < n && Character.isDigit(formula.charAt(i))) {
+//                     m.append(formula.charAt(i));
+//                     i++;
+//                 }
+//                 int mult = (m.length() > 0) ? Integer.parseInt(m.toString()) : 1;
+//                 for (String atom : currMap.keySet()) {
+//                     currMap.put(atom, currMap.get(atom) * mult);
+//                 }
+//                 for (String atom : currMap.keySet()) {
+//                     stack.peek().put(atom, stack.peek().getOrDefault(atom, 0) + currMap.get(atom));
+//                 }
+//             } else {
+//                 StringBuilder currAtom = new StringBuilder();
+//                 currAtom.append(formula.charAt(i));
+//                 i++;
+//                 while (i < n && Character.isLowerCase(formula.charAt(i))) {
+//                     currAtom.append(formula.charAt(i));
+//                     i++;
+//                 }
+//                 StringBuilder m = new StringBuilder();
+//                 while (i < n && Character.isDigit(formula.charAt(i))) {
+//                     m.append(formula.charAt(i));
+//                     i++;
+//                 }
+//                 int cnt = (m.length() == 0) ? 1 : Integer.parseInt(m.toString());
+//                 stack.peek().put(currAtom.toString(), stack.peek().getOrDefault(currAtom.toString(), 0) + cnt);
+//             }
+//         }
+        
+//         Map<String, Integer> result = stack.pop();
+//         List<String> elements = new ArrayList<>(result.keySet());
+//         Collections.sort(elements);
+//         StringBuilder sb = new StringBuilder();
+//         for (String ele : elements) {
+//             sb.append(ele);
+//             int cnt = result.get(ele);
+//             if (cnt > 1) {
+//                 sb.append(cnt);
+//             }
+//         }
+//         return sb.toString();
+//     }
+// }
         }
     }
