@@ -563,5 +563,81 @@ class Solution {
 // return ans;
 // }
 // }
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+//  class Solution {
+//     List<TreeNode> res = new ArrayList<>();
+//     Set<Integer> toDelete = new HashSet<>();
+
+//     public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+//         for (int val : to_delete) {
+//             toDelete.add(val);
+//         }
+//         dfs(root, true);
+//         return res;
+//     }
+
+//     private TreeNode dfs(TreeNode node, boolean isRoot) {
+//         if (node == null) return null;
+//         boolean deleted = toDelete.contains(node.val);
+//         if (isRoot &&!deleted) res.add(node);
+//         node.left = dfs(node.left, deleted);
+//         node.right = dfs(node.right, deleted);
+//         return deleted? null : node;
+//     }
+// }
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+ class Solution {
+    List<TreeNode> res = new ArrayList<>();
+    Set<Integer> toDelete = new HashSet<>();
+
+    public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+        for (int val : to_delete) {
+            toDelete.add(val);
+        }
+        dfs(root, true);
+        return res;
+    }
+
+    private TreeNode dfs(TreeNode node, boolean isRoot) {
+        if (node == null) return null;
+        boolean deleted = toDelete.contains(node.val);
+        if (isRoot &&!deleted) res.add(node);
+        node.left = dfs(node.left, deleted);
+        node.right = dfs(node.right, deleted);
+        return deleted? null : node;
+    }
+}
         }
     }
