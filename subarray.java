@@ -654,104 +654,153 @@ class Solution {
  *     }
  * }
  */
-class Solution {
-    public int countPairs(TreeNode root, int distance) {
-      dfs(root, distance);
+// class Solution {
+//     public int countPairs(TreeNode root, int distance) {
+//       dfs(root, distance);
   
-      return ans;
-    }
+//       return ans;
+//     }
   
-    private int ans = 0;
+//     private int ans = 0;
   
-    private int[] dfs(TreeNode root, int distance) {
-      int[] d = new int[distance + 1]; // {distance: the number of leaf nodes}
-      if (root == null)
-        return d;
-      if (root.left == null && root.right == null) {
-        d[0] = 1;
-        return d;
-      }
+//     private int[] dfs(TreeNode root, int distance) {
+//       int[] d = new int[distance + 1]; // {distance: the number of leaf nodes}
+//       if (root == null)
+//         return d;
+//       if (root.left == null && root.right == null) {
+//         d[0] = 1;
+//         return d;
+//       }
   
-      int[] dl = dfs(root.left, distance);
-      int[] dr = dfs(root.right, distance);
+//       int[] dl = dfs(root.left, distance);
+//       int[] dr = dfs(root.right, distance);
   
-      for (int i = 0; i < distance; ++i)
-        for (int j = 0; j < distance; ++j)
-          if (i + j + 2 <= distance)
-            ans += dl[i] * dr[j];
+//       for (int i = 0; i < distance; ++i)
+//         for (int j = 0; j < distance; ++j)
+//           if (i + j + 2 <= distance)
+//             ans += dl[i] * dr[j];
   
-      for (int i = 0; i < distance; ++i)
-        d[i + 1] = dl[i] + dr[i];
+//       for (int i = 0; i < distance; ++i)
+//         d[i + 1] = dl[i] + dr[i];
   
-      return d;
-    }
-  }
+//       return d;
+//     }
+//   }
 
-  class Solution {
-    public List<Integer> luckyNumbers (int[][] nums) {
+//   class Solution {
+//     public List<Integer> luckyNumbers (int[][] nums) {
       
 
-        List<Integer> num = new ArrayList();
-        int min = 0;
-        int row = 0;
-        int col = 0;
-        for (int i = 0; i < nums.length; i++) {
-            min = nums[i][0];
-            row = i;
-            col =0;
-            for (int j = 0; j < nums[i].length; j++) {
+//         List<Integer> num = new ArrayList();
+//         int min = 0;
+//         int row = 0;
+//         int col = 0;
+//         for (int i = 0; i < nums.length; i++) {
+//             min = nums[i][0];
+//             row = i;
+//             col =0;
+//             for (int j = 0; j < nums[i].length; j++) {
 
-                if (nums[i][j] < min) {
-                    min = nums[i][j];
-                    col = j;
+//                 if (nums[i][j] < min) {
+//                     min = nums[i][j];
+//                     col = j;
+//                 }
+//             }
+//             if(!checkGreaterInCol(nums,row, col)){
+//                 continue;
+//             }else{
+//                 num.add(nums[row][col]);
+//                 return num;
+//             }
+//         }
+//         return num;
+    
+//     }
+//     static boolean checkGreaterInCol(int[][] nums,int row, int col){
+//         int max = nums[row][col];
+//         for (int i = 0; i < nums.length; i++) {
+
+//             if(nums[i][col] > max){
+//                 return false;
+//             }
+//           }
+//         return true;
+//     }
+// }
+// class Solution {
+//     public int[][] restoreMatrix(int[] rowSum, int[] colSum) {
+//         int n=rowSum.length;
+//         int m=colSum.length;
+//         int[][] mat=new int[n][m];
+//         int i=0,j=0;
+//         int r=0,c=0;
+//         while(i<n&&j<m){
+//             mat[i][j]=Math.min(rowSum[r],colSum[c]);
+//             rowSum[r]=rowSum[r]-mat[i][j];
+//             colSum[c]=colSum[c]-mat[i][j];
+//             if(rowSum[r]==0){
+//                 r++;
+//                 i++;
+//             }
+//             else{
+//                 c++;
+//                 j++;
+//             }
+
+
+//         }
+//         return mat;
+        
+//     }
+// }
+
+class Solution {
+    public int[][] buildMatrix(int k, int[][] rowConditions, int[][] colConditions) {
+        List<Integer> rowOrder = topologicalSort(k, rowConditions);
+        List<Integer> colOrder = topologicalSort(k, colConditions);        
+        if (rowOrder == null || colOrder == null) {
+            return new int[0][0];
+        }        
+        int[][] result = new int[k][k];
+        Map<Integer, Integer> colPosition = new HashMap<>();       
+        for (int i = 0; i < k; i++) {
+            colPosition.put(colOrder.get(i), i);
+        }        
+        for (int i = 0; i < k; i++) {
+            int num = rowOrder.get(i);
+            result[i][colPosition.get(num)] = num;
+        }       
+        return result;
+    }    
+    private List<Integer> topologicalSort(int k, int[][] conditions) {
+        List<List<Integer>> graph = new ArrayList<>();
+        for (int i = 0; i <= k; i++) {
+            graph.add(new ArrayList<>());
+        }
+        int[] inDegree = new int[k + 1];        
+        for (int[] condition : conditions) {
+            int from = condition[0], to = condition[1];
+            graph.get(from).add(to);
+            inDegree[to]++;
+        }        
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 1; i <= k; i++) {
+            if (inDegree[i] == 0) {
+                queue.offer(i);
+            }
+        }        
+        List<Integer> order = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            order.add(node);
+            for (int neighbor : graph.get(node)) {
+                if (--inDegree[neighbor] == 0) {
+                    queue.offer(neighbor);
                 }
             }
-            if(!checkGreaterInCol(nums,row, col)){
-                continue;
-            }else{
-                num.add(nums[row][col]);
-                return num;
-            }
-        }
-        return num;
-    
-    }
-    static boolean checkGreaterInCol(int[][] nums,int row, int col){
-        int max = nums[row][col];
-        for (int i = 0; i < nums.length; i++) {
-
-            if(nums[i][col] > max){
-                return false;
-            }
-          }
-        return true;
+        }        
+        return order.size() == k ? order : null;
     }
 }
-class Solution {
-    public int[][] restoreMatrix(int[] rowSum, int[] colSum) {
-        int n=rowSum.length;
-        int m=colSum.length;
-        int[][] mat=new int[n][m];
-        int i=0,j=0;
-        int r=0,c=0;
-        while(i<n&&j<m){
-            mat[i][j]=Math.min(rowSum[r],colSum[c]);
-            rowSum[r]=rowSum[r]-mat[i][j];
-            colSum[c]=colSum[c]-mat[i][j];
-            if(rowSum[r]==0){
-                r++;
-                i++;
-            }
-            else{
-                c++;
-                j++;
-            }
-
-
-        }
-        return mat;
-        
-    }
-}
-        }
+//         }
     }
