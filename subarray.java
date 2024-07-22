@@ -754,68 +754,87 @@ class Solution {
 //     }
 // }
 
-class Solution {
-    public int[][] buildMatrix(int k, int[][] rowConditions, int[][] colConditions) {
-        List<Integer> rowOrder = topologicalSort(k, rowConditions);
-        List<Integer> colOrder = topologicalSort(k, colConditions);        
-        if (rowOrder == null || colOrder == null) {
-            return new int[0][0];
-        }        
-        int[][] result = new int[k][k];
-        Map<Integer, Integer> colPosition = new HashMap<>();       
-        for (int i = 0; i < k; i++) {
-            colPosition.put(colOrder.get(i), i);
-        }        
-        for (int i = 0; i < k; i++) {
-            int num = rowOrder.get(i);
-            result[i][colPosition.get(num)] = num;
-        }       
-        return result;
-    }    
-    private List<Integer> topologicalSort(int k, int[][] conditions) {
-        List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i <= k; i++) {
-            graph.add(new ArrayList<>());
-        }
-        int[] inDegree = new int[k + 1];        
-        for (int[] condition : conditions) {
-            int from = condition[0], to = condition[1];
-            graph.get(from).add(to);
-            inDegree[to]++;
-        }        
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 1; i <= k; i++) {
-            if (inDegree[i] == 0) {
-                queue.offer(i);
-            }
-        }        
-        List<Integer> order = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            int node = queue.poll();
-            order.add(node);
-            for (int neighbor : graph.get(node)) {
-                if (--inDegree[neighbor] == 0) {
-                    queue.offer(neighbor);
-                }
-            }
-        }        
-        return order.size() == k ? order : null;
-    }
-}
-
-class Solution {
-    public boolean containsDuplicate(int[] nums) {
-        
-        HashSet<Integer> set = new HashSet<>();
-
-        for(int i =0;i<nums.length;i++){
-
-            if(set.contains(nums[i]))
-            return true;
-            set.add(nums[i]);
-        }
-        return false;
-    }
-}
+// class Solution {
+//     public int[][] buildMatrix(int k, int[][] rowConditions, int[][] colConditions) {
+//         List<Integer> rowOrder = topologicalSort(k, rowConditions);
+//         List<Integer> colOrder = topologicalSort(k, colConditions);        
+//         if (rowOrder == null || colOrder == null) {
+//             return new int[0][0];
+//         }        
+//         int[][] result = new int[k][k];
+//         Map<Integer, Integer> colPosition = new HashMap<>();       
+//         for (int i = 0; i < k; i++) {
+//             colPosition.put(colOrder.get(i), i);
+//         }        
+//         for (int i = 0; i < k; i++) {
+//             int num = rowOrder.get(i);
+//             result[i][colPosition.get(num)] = num;
+//         }       
+//         return result;
+//     }    
+//     private List<Integer> topologicalSort(int k, int[][] conditions) {
+//         List<List<Integer>> graph = new ArrayList<>();
+//         for (int i = 0; i <= k; i++) {
+//             graph.add(new ArrayList<>());
 //         }
+//         int[] inDegree = new int[k + 1];        
+//         for (int[] condition : conditions) {
+//             int from = condition[0], to = condition[1];
+//             graph.get(from).add(to);
+//             inDegree[to]++;
+//         }        
+//         Queue<Integer> queue = new LinkedList<>();
+//         for (int i = 1; i <= k; i++) {
+//             if (inDegree[i] == 0) {
+//                 queue.offer(i);
+//             }
+//         }        
+//         List<Integer> order = new ArrayList<>();
+//         while (!queue.isEmpty()) {
+//             int node = queue.poll();
+//             order.add(node);
+//             for (int neighbor : graph.get(node)) {
+//                 if (--inDegree[neighbor] == 0) {
+//                     queue.offer(neighbor);
+//                 }
+//             }
+//         }        
+//         return order.size() == k ? order : null;
+//     }
+// }
+
+// class Solution {
+//     public boolean containsDuplicate(int[] nums) {
+        
+//         HashSet<Integer> set = new HashSet<>();
+
+//         for(int i =0;i<nums.length;i++){
+
+//             if(set.contains(nums[i]))
+//             return true;
+//             set.add(nums[i]);
+//         }
+//         return false;
+//     }
+// }
+// //    
+
+ // Approach 1
+ class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+       int n = names.length;
+       HashMap<Integer,String> map = new HashMap<>();
+       for(int i = 0; i < n; i++){
+           map.put(heights[i], names[i]);
+       }
+       Arrays.sort(heights);
+       String res[] = new String[n];
+       int idx = 0;
+       for(int i = n-1; i >= 0; i--){
+           res[idx++] = map.get(heights[i]);
+       }
+       return res;
+    }
+}
+}
     }
