@@ -836,5 +836,26 @@ class Solution {
        return res;
     }
 }
+
+class Solution {
+    public int[] frequencySort(int[] a) {
+        int[] freq = new int[201];
+        int k = 0;
+        int[] ans = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            freq[a[i] + 100] += 1;
+        }
+        for (int i = 1; i <= 100; i++) {
+            for (int j = freq.length - 1; j >= 0; j--) {
+                if (freq[j] == i) {
+                    for (int m = 0; m < freq[j]; m++) {
+                        ans[k++] = j - 100;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
 }
     }
