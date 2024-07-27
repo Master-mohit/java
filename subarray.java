@@ -909,6 +909,42 @@ class Solution {
 //        }
 //        return min;
 //     } 
+
+// class Solution {
+//     public long minimumCost(String source, String target, char[] original, char[] changed, int[] cost) {
+//         long dismap[][]=new long[26][26];
+//         for(int i=0;i<26;i++){
+//             Arrays.fill(dismap[i],1000000000);
+//             dismap[i][i]=0;
+//         }
+//         for(int i=0;i<cost.length;i++){
+//             dismap[original[i]-'a'][changed[i]-'a']=Math.min(dismap[original[i]-'a'][changed[i]-'a'],cost[i]);
+//         }
+//         for(int k=0;k<26;k++){
+//             for(int i=0;i<26;i++){
+//                 if(dismap[i][k]<1000000000){
+//                     for(int j=0;j<26;j++){
+//                         if(dismap[k][j]<1000000000){
+//                             dismap[i][j]=Math.min(dismap[i][j],dismap[i][k]+dismap[k][j]);
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//         long sum=0;
+//         for(int i=0;i<source.length();i++){
+//             int ch=source.charAt(i)-'a';
+//             int ch1=target.charAt(i)-'a';
+//             if(dismap[ch][ch1]==1000000000){
+//                 return -1;
+//             }
+//             else{
+//                 sum+=(long)dismap[ch][ch1];
+//             }
+//         }
+//         return sum;
+//     }
+// }
 }
 }
     }
