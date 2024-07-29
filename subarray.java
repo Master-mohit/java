@@ -947,90 +947,108 @@ class Solution {
 // }
 }
 
-import java.util.*;
+// import java.util.*;
+
+// class Solution {
+//     public int secondMinimum(int n, int[][] edges, int time, int change) {
+//         List<List<Integer>> adj = new ArrayList<>();
+//         for (int i = 0; i <= n; i++) {
+//             adj.add(new ArrayList<>());
+//         }
+
+//         for (int[] edge : edges) {
+//             adj.get(edge[0]).add(edge[1]);
+//             adj.get(edge[1]).add(edge[0]);
+//         }
+
+//         PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+//         int[] dist1 = new int[n + 1];
+//         int[] dist2 = new int[n + 1];
+//         int[] freq = new int[n + 1];
+
+//         Arrays.fill(dist1, Integer.MAX_VALUE);
+//         Arrays.fill(dist2, Integer.MAX_VALUE);
+
+//         minHeap.add(new int[]{0, 1});
+//         dist1[1] = 0;
+
+//         while (!minHeap.isEmpty()) {
+//             int[] curr = minHeap.poll();
+//             int timeTaken = curr[0];
+//             int node = curr[1];
+
+//             freq[node]++;
+
+//             if (freq[node] == 2 && node == n) {
+//                 return timeTaken;
+//             }
+
+//             for (int neighbor : adj.get(node)) {
+//                 int newTimeTaken = timeTaken;
+
+//                 if ((newTimeTaken / change) % 2 != 0) {
+//                     newTimeTaken = change * (newTimeTaken / change + 1) + time;
+//                 } else {
+//                     newTimeTaken = newTimeTaken + time;
+//                 }
+
+//                 if (dist1[neighbor] > newTimeTaken) {
+//                     dist2[neighbor] = dist1[neighbor];
+//                     dist1[neighbor] = newTimeTaken;
+//                     minHeap.add(new int[]{newTimeTaken, neighbor});
+//                 } else if (dist2[neighbor] > newTimeTaken && dist1[neighbor] != newTimeTaken) {
+//                     dist2[neighbor] = newTimeTaken;
+//                     minHeap.add(new int[]{newTimeTaken, neighbor});
+//                 }
+//             }
+//         }
+//         return 0;
+//     }
+//     class Solution {
+//         public int arrayPairSum(int[] nums) {
+//             int res = 0;
+//             Arrays.sort(nums);
+//             for(int i=0; i<nums.length; i+=2){
+//                 res = res + nums[i];
+//             }
+//             return res;
+//         }
+//     }
+//     class Solution {
+//         public int findLHS(int[] nums) {
+            
+//             Arrays.sort(nums);
+//             int maxlength =0;
+//             int start = 0;
+//             for(int end =0; end <nums.length; end++){
+//                while(nums[end ] - nums[start] > 1){
+//                 start++;
+//                } 
+//               if (nums[end] - nums[start] == 1){
+//                 maxlength =  Math.max(maxlength, end  - start + 1);
+//                }
+//             }
+//             return maxlength;
+//         }
+//     }
 
 class Solution {
-    public int secondMinimum(int n, int[][] edges, int time, int change) {
-        List<List<Integer>> adj = new ArrayList<>();
-        for (int i = 0; i <= n; i++) {
-            adj.add(new ArrayList<>());
-        }
-
-        for (int[] edge : edges) {
-            adj.get(edge[0]).add(edge[1]);
-            adj.get(edge[1]).add(edge[0]);
-        }
-
-        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
-        int[] dist1 = new int[n + 1];
-        int[] dist2 = new int[n + 1];
-        int[] freq = new int[n + 1];
-
-        Arrays.fill(dist1, Integer.MAX_VALUE);
-        Arrays.fill(dist2, Integer.MAX_VALUE);
-
-        minHeap.add(new int[]{0, 1});
-        dist1[1] = 0;
-
-        while (!minHeap.isEmpty()) {
-            int[] curr = minHeap.poll();
-            int timeTaken = curr[0];
-            int node = curr[1];
-
-            freq[node]++;
-
-            if (freq[node] == 2 && node == n) {
-                return timeTaken;
+    public int numTeams(int[] rating) {
+        int count = 0;
+        int n = rating.length;
+        for(int i=0; i<n; i++){
+       for(int j=i+1; j<n; j++){
+        for(int k =j+1; k<n; k++){
+            if((rating[i] < rating[j] && rating[j] < rating[k])|| 
+            (rating[i] > rating[j] && rating[j] > rating[k])){
+                count++;
             }
-
-            for (int neighbor : adj.get(node)) {
-                int newTimeTaken = timeTaken;
-
-                if ((newTimeTaken / change) % 2 != 0) {
-                    newTimeTaken = change * (newTimeTaken / change + 1) + time;
-                } else {
-                    newTimeTaken = newTimeTaken + time;
-                }
-
-                if (dist1[neighbor] > newTimeTaken) {
-                    dist2[neighbor] = dist1[neighbor];
-                    dist1[neighbor] = newTimeTaken;
-                    minHeap.add(new int[]{newTimeTaken, neighbor});
-                } else if (dist2[neighbor] > newTimeTaken && dist1[neighbor] != newTimeTaken) {
-                    dist2[neighbor] = newTimeTaken;
-                    minHeap.add(new int[]{newTimeTaken, neighbor});
-                }
-            }
+       }
+       }
         }
-        return 0;
+        return count;
     }
-    class Solution {
-        public int arrayPairSum(int[] nums) {
-            int res = 0;
-            Arrays.sort(nums);
-            for(int i=0; i<nums.length; i+=2){
-                res = res + nums[i];
-            }
-            return res;
-        }
-    }
-    class Solution {
-        public int findLHS(int[] nums) {
-            
-            Arrays.sort(nums);
-            int maxlength =0;
-            int start = 0;
-            for(int end =0; end <nums.length; end++){
-               while(nums[end ] - nums[start] > 1){
-                start++;
-               } 
-              if (nums[end] - nums[start] == 1){
-                maxlength =  Math.max(maxlength, end  - start + 1);
-               }
-            }
-            return maxlength;
-        }
-    }
+}
 }
 }
     
