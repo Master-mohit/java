@@ -117,27 +117,27 @@ public class subarray {
  *     }
  * }
  */
-class Solution {
-    private int val = 0;
+// class Solution {
+//     private int val = 0;
     
-    public TreeNode bstToGst(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
+//     public TreeNode bstToGst(TreeNode root) {
+//         if (root == null) {
+//             return null;
+//         }
         
-        if (root.right != null) {
-            bstToGst(root.right);
-        }
+//         if (root.right != null) {
+//             bstToGst(root.right);
+//         }
         
-        val = root.val = val + root.val;
+//         val = root.val = val + root.val;
         
-        if (root.left != null) {
-            bstToGst(root.left);
-        }
+//         if (root.left != null) {
+//             bstToGst(root.left);
+//         }
         
-        return root;
-    }
-}
+//         return root;
+//     }
+// }
 
 // 26/06/24
 
@@ -1032,22 +1032,41 @@ class Solution {
 //         }
 //     }
 
-class Solution {
-    public int numTeams(int[] rating) {
-        int count = 0;
-        int n = rating.length;
-        for(int i=0; i<n; i++){
-       for(int j=i+1; j<n; j++){
-        for(int k =j+1; k<n; k++){
-            if((rating[i] < rating[j] && rating[j] < rating[k])|| 
-            (rating[i] > rating[j] && rating[j] > rating[k])){
-                count++;
-            }
-       }
-       }
-        }
-        return count;
-    }
+// class Solution {
+//     public int numTeams(int[] rating) {
+//         int count = 0;
+//         int n = rating.length;
+//         for(int i=0; i<n; i++){
+//        for(int j=i+1; j<n; j++){
+//         for(int k =j+1; k<n; k++){
+//             if((rating[i] < rating[j] && rating[j] < rating[k])|| 
+//             (rating[i] > rating[j] && rating[j] > rating[k])){
+//                 count++;
+//             }
+//        }
+//        }
+//         }
+//         return count;
+//     }
+
+    // class Solution {
+    //     public int minimumDeletions(String s) {
+    //      int acount = 0;
+    //      int bcount = 0;
+    
+    //     for(char chacha : s.toCharArray()){
+    //         if(chacha == 'b'){
+    //             bcount++;
+    //         }
+    //         else if(bcount > 0){
+    //             bcount--;
+    //             acount++;
+    //         }
+       
+    //     }
+    //      return acount;
+    //     }
+    // }
 }
 }
 
