@@ -1122,7 +1122,27 @@ public class String {
  
         //  return ans;
 
-        }
-}
+        
+//         }
+// }
+
+
+// class Solution {
+//   public int countSeniors(String[] details) {
+//               int count = 0;
+//         for(int i =0; i<details.length; i++){
+//                  String chacha =  details[i];
+//                  if(chacha.length() == 15){
+//                  String oye =   chacha.substring(11, 13);
+//                  int age =   Integer.parseInt(oye);
+//                   if (age > 60){
+//                     count++;
+//                    }
+//                  }    
+//       }
+
+//                 return count; 
+//   }
+// }
  
     

@@ -3,8 +3,8 @@ import java.util.List;
 
 import javax.swing.tree.TreeNode;
 
-public class subarray {
-    public static void main(String[] args) {
+// public class subarray {
+//     public static void main(String[] args) {
         // 22/06/24
         // int count = 0; 
         // for (int i = 0; i < nums.length; i++) {
@@ -1067,7 +1067,9 @@ public class subarray {
     //      return acount;
     //     }
     // }
-}
-}
+      
+   
+// }
+// }
 
     
