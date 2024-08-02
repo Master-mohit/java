@@ -1142,7 +1142,39 @@ public class String {
 //       }
 
 //                 return count; 
+
+
+// class Solution {
+//   public int minSwaps(int[] nums) {
+//       int count1=0,n=nums.length;
+//       for(int a:nums)
+//       if(a==1)
+//       count1++;
+
+//       int i=0,j=0;
+//       int count0=0,res=Integer.MAX_VALUE;
+//       while(j<2*nums.length)
+//       {
+//           if(nums[j%n]==0)
+//           count0++;
+
+//           if(j-i+1>count1)
+//           {
+//               if(nums[i%n]==0)
+//               count0--;
+//               i++;
+//           }
+//           if(j-i+1==count1)
+//           res=Math.min(count0,res);
+//           j++;
+//       }
+//       return res;
 //   }
 // }
+
+
+
+  }
+}
  
     
