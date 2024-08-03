@@ -1172,6 +1172,29 @@ public class String {
 //   }
 // }
 
+import java.util.HashMap;
+
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        if (target.length != arr.length) {
+            return false; // Arrays are of different lengths, cannot be equal
+        }
+
+        // Create frequency maps for both arrays
+        HashMap<Integer, Integer> targetCount = new HashMap<>();
+        HashMap<Integer, Integer> arrCount = new HashMap<>();
+        
+        for (int num : target) {
+            targetCount.put(num, targetCount.getOrDefault(num, 0) + 1);
+        }
+        
+        for (int num : arr) {
+            arrCount.put(num, arrCount.getOrDefault(num, 0) + 1);
+        }
+        
+        return targetCount.equals(arrCount); // Compare the frequency maps
+    }
+}
 
 
   }
