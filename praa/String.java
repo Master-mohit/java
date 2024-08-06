@@ -3,6 +3,7 @@ package praa;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 
 public class String {
     public static void main(int[] args) {
@@ -1172,47 +1173,70 @@ public class String {
 //   }
 // }
 
-import java.util.HashMap;
+// import java.util.HashMap;
 
-class Solution {
-    public boolean canBeEqual(int[] target, int[] arr) {
-        if (target.length != arr.length) {
-            return false; // Arrays are of different lengths, cannot be equal
-        }
+// class Solution {
+//     public boolean canBeEqual(int[] target, int[] arr) {
+//         if (target.length != arr.length) {
+//             return false; // Arrays are of different lengths, cannot be equal
+//         }
 
-        // Create frequency maps for both arrays
-        HashMap<Integer, Integer> targetCount = new HashMap<>();
-        HashMap<Integer, Integer> arrCount = new HashMap<>();
+//         // Create frequency maps for both arrays
+//         HashMap<Integer, Integer> targetCount = new HashMap<>();
+//         HashMap<Integer, Integer> arrCount = new HashMap<>();
         
-        for (int num : target) {
-            targetCount.put(num, targetCount.getOrDefault(num, 0) + 1);
-        }
+//         for (int num : target) {
+//             targetCount.put(num, targetCount.getOrDefault(num, 0) + 1);
+//         }
         
-        for (int num : arr) {
-            arrCount.put(num, arrCount.getOrDefault(num, 0) + 1);
-        }
+//         for (int num : arr) {
+//             arrCount.put(num, arrCount.getOrDefault(num, 0) + 1);
+//         }
         
-        return targetCount.equals(arrCount); // Compare the frequency maps
-    }
-}
-class Solution {
-    public String kthDistinct(String[] arr, int k) {
-        HashMap<String, Integer> map = new HashMap<>();
+//         return targetCount.equals(arrCount); // Compare the frequency maps
+//     }
+// }
+// class Solution {
+//     public String kthDistinct(String[] arr, int k) {
+//         HashMap<String, Integer> map = new HashMap<>();
 
-        for(String s : arr) {
-            map.put(s, map.getOrDefault(s, 0) + 1);
-        }
+//         for(String s : arr) {
+//             map.put(s, map.getOrDefault(s, 0) + 1);
+//         }
 
-        for(String s : arr) {
-            if(map.get(s) == 1) {
-                k--;
-                if(k == 0) return s;
-            }
-        }
+//         for(String s : arr) {
+//             if(map.get(s) == 1) {
+//                 k--;
+//                 if(k == 0) return s;
+//             }
+//         }
 
-        return "";        
-    }
-}
+//         return "";        
+//     }
+// }
+
+// class Solution {
+//     public int minimumPushes(String word) {
+//         int[] alphabets=new int[26];
+//         for (int i =0;i<word.length();i++){
+//             alphabets[word.charAt(i)-'a']++;
+//         }
+//         Arrays.sort(alphabets);
+//         int sum=0;
+//         for (int i =25;i>-1;i--){
+//             if (i>17){
+//                 sum=sum+(alphabets[i]);
+//             }else if (i>9){
+//                 sum=sum+(alphabets[i]*2);
+//             }else if (i>1) {
+//                 sum=sum+(alphabets[i]*3);
+//             }else{
+//                 sum=sum+(alphabets[i]*4);
+//             }
+//         }
+//         return sum;
+//     }
+// }
 
   }
 }
