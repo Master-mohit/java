@@ -1,12 +1,12 @@
 package praa;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
+// import java.util.ArrayList;
+// import java.util.Arrays;
+// import java.util.Collection;
+// import java.util.HashMap;
 
-public class String {
-    public static void main(int[] args) {
+// public class String {
+//     public static void main(int[] args) {
     //     StringBuilder bs = new StringBuilder(" ");
         
     //     String s = "mohit nougraiya";
