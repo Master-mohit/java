@@ -1335,6 +1335,56 @@ class Solution {
   }
 }
 
+class Solution {
+    private int exploreRegion(int[][] grid, int row, int col) {
+        if (row < 0 || col < 0 || row >= grid.length
+                || col >= grid.length || grid[row][col] != 0) {
+            return 0;
+        }
+        grid[row][col] = 1;
+        return 1 + exploreRegion(grid, row - 1, col) + exploreRegion(grid, row + 1, col) +
+                exploreRegion(grid, row, col - 1) + exploreRegion(grid, row, col + 1);
+    }
+
+    public int regionsBySlashes(String[] grid) {
+        int originalSize = grid.length;
+        int expandedSize = originalSize * 3;
+        int[][] expandedGrid = new int[expandedSize][expandedSize];
+
+        for (int row = 0; row < originalSize; row++) {
+            for (int col = 0; col < originalSize; col++) {
+                char currentChar = grid[row].charAt(col);
+                int baseRow = row * 3;
+                int baseCol = col * 3;
+
+                if (currentChar == '/') {
+                    // Set the cells for '/'
+                    expandedGrid[baseRow][baseCol + 2] = 1;
+                    expandedGrid[baseRow + 1][baseCol + 1] = 1;
+                    expandedGrid[baseRow + 2][baseCol] = 1;
+                } else if (currentChar == '\\') {
+                    // Set the cells for '\'
+                    expandedGrid[baseRow][baseCol] = 1;
+                    expandedGrid[baseRow + 1][baseCol + 1] = 1;
+                    expandedGrid[baseRow + 2][baseCol + 2] = 1;
+                }
+            }
+        }
+
+        int regionCount = 0;
+        for (int i = 0; i < expandedSize; ++i) {
+            for (int j = 0; j < expandedSize; ++j) {
+                if (exploreRegion(expandedGrid, i, j) > 0) {
+                    regionCount++;
+                }
+            }
+        }
+
+        return regionCount;
+    }
+
+}
+
   }
 }
  
