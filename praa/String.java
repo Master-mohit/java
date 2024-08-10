@@ -1238,154 +1238,154 @@ public class String {
 //     }
 // }
 
-import java.util.*;
+// import java.util.*;
 
-class Solution {
-    public int[][] spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
-        int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-        int numSteps = 1;
-        int totalCells = rows * cols;
-        List<int[]> result = new ArrayList<>();
-        int r = rStart, c = cStart;
-        int d = 0;
+// class Solution {
+//     public int[][] spiralMatrixIII(int rows, int cols, int rStart, int cStart) {
+//         int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+//         int numSteps = 1;
+//         int totalCells = rows * cols;
+//         List<int[]> result = new ArrayList<>();
+//         int r = rStart, c = cStart;
+//         int d = 0;
 
-        while (result.size() < totalCells) {
-            for (int i = 0; i < 2; i++) {
-                for (int j = 0; j < numSteps; j++) {
-                    if (0 <= r && r < rows && 0 <= c && c < cols) {
-                        result.add(new int[]{r, c});
-                    }
-                    if (result.size() == totalCells) {
-                        return convertListToArray(result);
-                    }
-                    r += directions[d][0];
-                    c += directions[d][1];
-                }
-                d = (d + 1) % 4;
-            }
-            numSteps++;
-        }
+//         while (result.size() < totalCells) {
+//             for (int i = 0; i < 2; i++) {
+//                 for (int j = 0; j < numSteps; j++) {
+//                     if (0 <= r && r < rows && 0 <= c && c < cols) {
+//                         result.add(new int[]{r, c});
+//                     }
+//                     if (result.size() == totalCells) {
+//                         return convertListToArray(result);
+//                     }
+//                     r += directions[d][0];
+//                     c += directions[d][1];
+//                 }
+//                 d = (d + 1) % 4;
+//             }
+//             numSteps++;
+//         }
 
-        return convertListToArray(result);
-    }
+//         return convertListToArray(result);
+//     }
 
-    private int[][] convertListToArray(List<int[]> list) {
-        int[][] array = new int[list.size()][2];
-        for (int i = 0; i < list.size(); i++) {
-            array[i] = list.get(i);
-        }
-        return array;
-    }
+//     private int[][] convertListToArray(List<int[]> list) {
+//         int[][] array = new int[list.size()][2];
+//         for (int i = 0; i < list.size(); i++) {
+//             array[i] = list.get(i);
+//         }
+//         return array;
+//     }
 
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        int[][] result = solution.spiralMatrixIII(5, 6, 1, 4);
-        for (int[] coords : result) {
-            System.out.println(Arrays.toString(coords));
-        }
-    }
-}
+//     public static void main(String[] args) {
+//         Solution solution = new Solution();
+//         int[][] result = solution.spiralMatrixIII(5, 6, 1, 4);
+//         for (int[] coords : result) {
+//             System.out.println(Arrays.toString(coords));
+//         }
+//     }
+// }
 
-class Solution {
-  public boolean isMagicSquare(int[][] grid, int r, int c){
-      boolean[] seen = new boolean[10];
-      for(int i=0;i<3;i++){
-          for(int j=0;j<3;j++){
-              int num=grid[r+i][c+j];
-              if(num<1||num>9||seen[num]){
-                  return false;
-              }
-              else
-                  seen[num]=true;;
-          }
-      }
+// class Solution {
+//   public boolean isMagicSquare(int[][] grid, int r, int c){
+//       boolean[] seen = new boolean[10];
+//       for(int i=0;i<3;i++){
+//           for(int j=0;j<3;j++){
+//               int num=grid[r+i][c+j];
+//               if(num<1||num>9||seen[num]){
+//                   return false;
+//               }
+//               else
+//                   seen[num]=true;;
+//           }
+//       }
 
-      int rSum=grid[r][c]+grid[r][c+1]+grid[r][c+2];
-      for(int i=0;i<3;i++){
-          // each row sum
-          if(grid[r+i][c]+grid[r+i][c+1]+grid[r+i][c+2]!=rSum){
-              return false;
-          }
-          // each col sum
-          if(grid[r][c+i]+grid[r+1][c+i]+grid[r+2][c+i]!=rSum){
-              return false;
-          }   
-      }
-      // diagonal
-      if(grid[r][c]+grid[r+1][c+1]+grid[r+2][c+2]!=rSum){
-          return false;
-      }
-      // antidiagonal
-      if(grid[r][c+2]+grid[r+1][c+1]+grid[r+2][c]!=rSum){
-          return false;
-      }
-      return true;
-  }
-  public int numMagicSquaresInside(int[][] grid) {
-      int rows=grid.length;
-      int cols=grid[0].length;
-      int count=0;
-      for(int i=0;i<=rows-3;i++){
-          for(int j=0;j<=cols-3;j++){
-              if(isMagicSquare(grid,i,j))
-                  count++;
-          }
-      }
-      return count;
-  }
-}
+//       int rSum=grid[r][c]+grid[r][c+1]+grid[r][c+2];
+//       for(int i=0;i<3;i++){
+//           // each row sum
+//           if(grid[r+i][c]+grid[r+i][c+1]+grid[r+i][c+2]!=rSum){
+//               return false;
+//           }
+//           // each col sum
+//           if(grid[r][c+i]+grid[r+1][c+i]+grid[r+2][c+i]!=rSum){
+//               return false;
+//           }   
+//       }
+//       // diagonal
+//       if(grid[r][c]+grid[r+1][c+1]+grid[r+2][c+2]!=rSum){
+//           return false;
+//       }
+//       // antidiagonal
+//       if(grid[r][c+2]+grid[r+1][c+1]+grid[r+2][c]!=rSum){
+//           return false;
+//       }
+//       return true;
+//   }
+//   public int numMagicSquaresInside(int[][] grid) {
+//       int rows=grid.length;
+//       int cols=grid[0].length;
+//       int count=0;
+//       for(int i=0;i<=rows-3;i++){
+//           for(int j=0;j<=cols-3;j++){
+//               if(isMagicSquare(grid,i,j))
+//                   count++;
+//           }
+//       }
+//       return count;
+//   }
+// }
 
-class Solution {
-    private int exploreRegion(int[][] grid, int row, int col) {
-        if (row < 0 || col < 0 || row >= grid.length
-                || col >= grid.length || grid[row][col] != 0) {
-            return 0;
-        }
-        grid[row][col] = 1;
-        return 1 + exploreRegion(grid, row - 1, col) + exploreRegion(grid, row + 1, col) +
-                exploreRegion(grid, row, col - 1) + exploreRegion(grid, row, col + 1);
-    }
+// class Solution {
+//     private int exploreRegion(int[][] grid, int row, int col) {
+//         if (row < 0 || col < 0 || row >= grid.length
+//                 || col >= grid.length || grid[row][col] != 0) {
+//             return 0;
+//         }
+//         grid[row][col] = 1;
+//         return 1 + exploreRegion(grid, row - 1, col) + exploreRegion(grid, row + 1, col) +
+//                 exploreRegion(grid, row, col - 1) + exploreRegion(grid, row, col + 1);
+//     }
 
-    public int regionsBySlashes(String[] grid) {
-        int originalSize = grid.length;
-        int expandedSize = originalSize * 3;
-        int[][] expandedGrid = new int[expandedSize][expandedSize];
+//     public int regionsBySlashes(String[] grid) {
+//         int originalSize = grid.length;
+//         int expandedSize = originalSize * 3;
+//         int[][] expandedGrid = new int[expandedSize][expandedSize];
 
-        for (int row = 0; row < originalSize; row++) {
-            for (int col = 0; col < originalSize; col++) {
-                char currentChar = grid[row].charAt(col);
-                int baseRow = row * 3;
-                int baseCol = col * 3;
+//         for (int row = 0; row < originalSize; row++) {
+//             for (int col = 0; col < originalSize; col++) {
+//                 char currentChar = grid[row].charAt(col);
+//                 int baseRow = row * 3;
+//                 int baseCol = col * 3;
 
-                if (currentChar == '/') {
-                    // Set the cells for '/'
-                    expandedGrid[baseRow][baseCol + 2] = 1;
-                    expandedGrid[baseRow + 1][baseCol + 1] = 1;
-                    expandedGrid[baseRow + 2][baseCol] = 1;
-                } else if (currentChar == '\\') {
-                    // Set the cells for '\'
-                    expandedGrid[baseRow][baseCol] = 1;
-                    expandedGrid[baseRow + 1][baseCol + 1] = 1;
-                    expandedGrid[baseRow + 2][baseCol + 2] = 1;
-                }
-            }
-        }
+//                 if (currentChar == '/') {
+//                     // Set the cells for '/'
+//                     expandedGrid[baseRow][baseCol + 2] = 1;
+//                     expandedGrid[baseRow + 1][baseCol + 1] = 1;
+//                     expandedGrid[baseRow + 2][baseCol] = 1;
+//                 } else if (currentChar == '\\') {
+//                     // Set the cells for '\'
+//                     expandedGrid[baseRow][baseCol] = 1;
+//                     expandedGrid[baseRow + 1][baseCol + 1] = 1;
+//                     expandedGrid[baseRow + 2][baseCol + 2] = 1;
+//                 }
+//             }
+//         }
 
-        int regionCount = 0;
-        for (int i = 0; i < expandedSize; ++i) {
-            for (int j = 0; j < expandedSize; ++j) {
-                if (exploreRegion(expandedGrid, i, j) > 0) {
-                    regionCount++;
-                }
-            }
-        }
+//         int regionCount = 0;
+//         for (int i = 0; i < expandedSize; ++i) {
+//             for (int j = 0; j < expandedSize; ++j) {
+//                 if (exploreRegion(expandedGrid, i, j) > 0) {
+//                     regionCount++;
+//                 }
+//             }
+//         }
 
-        return regionCount;
-    }
+//         return regionCount;
+//     }
 
-}
+// }
 
-  }
-}
+//   }
+// }
  
     
