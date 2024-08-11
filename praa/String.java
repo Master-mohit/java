@@ -1385,6 +1385,79 @@ package praa;
 
 // }
 
+// class Solution {
+//   int[] dir={-1,0,1,0,-1};
+//   public int minDays(int[][] grid) {
+//       boolean[][] visited=new boolean[grid.length][grid[0].length];
+//       int island=0;
+//       for(int i=0;i<grid.length;i++){
+//           for(int j=0;j<grid[0].length;j++){
+//               if(!visited[i][j]&&grid[i][j]==1){
+//                   dfs(grid,visited,i,j);
+//                   island++;
+//               }
+//           }
+//       }
+//       if(island!=1) return 0;
+
+//       int cell1=0;
+//       int minConnection=Integer.MAX_VALUE;
+//       for(int i=0;i<grid.length;i++){
+//           for(int j=0;j<grid[0].length;j++){
+//               if(grid[i][j]==1){
+//                   cell1++;
+//                   int count=0;
+//                   for(int k=0;k<dir.length-1;k++){
+//                       int x=i+dir[k];
+//                       int y=j+dir[k+1];
+//                       if(x>=0&&x<grid.length&&y>=0&&y<grid[0].length&&grid[x][y]==1) count++;
+//                   }
+//                   minConnection=Math.min(minConnection,count);
+//               }
+//           }
+//       }
+
+
+//       if(cell1<=2) return cell1;
+//       if(minConnection==1) return 1;
+
+//       for(int i=0;i<grid.length;i++){
+//           for(int j=0;j<grid[0].length;j++){
+//               if(grid[i][j]==1){
+//                   grid[i][j]=0;
+//                   for(int k=0;k<dir.length-1;k++){
+//                       int x=i+dir[k];
+//                       int y=j+dir[k+1];
+//                       if(x>=0&&x<grid.length&&y>=0&&y<grid[0].length&&grid[x][y]==1){
+//                           boolean[][] newVisited=new boolean[grid.length][grid[0].length];
+//                           dfs(grid,newVisited,x,y);
+//                           int sum=0;
+//                           for(boolean[] row:newVisited){
+//                               for(int col=0;col<grid[0].length;col++){
+//                                   if(row[col]==true) sum++;
+//                               }
+//                           }
+//                           if(sum!=cell1-1) return 1;
+//                       }
+                      
+//                   }
+//                   grid[i][j]=1;
+//               }
+//           }
+//       }
+//       return 2;
+//   }
+
+//   void dfs(int[][] grid, boolean[][] visited, int i, int j){
+//       if(i>=0&&i<grid.length&&j>=0&&j<grid[0].length&&!visited[i][j]&&grid[i][j]==1){
+//           visited[i][j]=true;
+//           for(int k=0;k<dir.length-1;k++){
+//               dfs(grid,visited,i+dir[k],j+dir[k+1]);
+//           }
+//       }
+//   }
+// }
+
 //   }
 // }
  
