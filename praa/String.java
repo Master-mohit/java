@@ -1458,6 +1458,27 @@ package praa;
 //   }
 // }
 
+// class KthLargest 
+// {
+//     int num[],k1;
+//     public KthLargest(int k, int[] nums)
+//     {
+//         k1=k;
+//         num=nums;    
+//     }
+    
+//     public int add(int val)
+//     {
+//         int a[]=new int[num.length+1],x,c=0;    
+//         for(x=0;x<num.length;x++)
+//         a[x]=num[x];
+//         a[a.length-1]=val;
+//         Arrays.sort(a);
+//         num=a;
+//         return a[a.length-k1];
+//     }
+// }
+
 //   }
 // }
  
