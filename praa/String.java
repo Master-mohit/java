@@ -1529,6 +1529,39 @@ package praa;
 //       return low;
 //   }
 // }
+class Solution {
+  public boolean lemonadeChange(int[] bills) {
+       int r5=0;
+      int r10=0;
+   
+      for(int bill :bills){
+          if(bill == 5){
+          r5+=1;
+          continue;
+          }
+          else if(bill == 10){
+              r10+=1;
+              if(r5 <=0)
+              return false;
+              else
+              r5-=1;
+          }
+          else{
+             
+             if(r5 > 0 && r10 >0){
+              r5-=1;
+              r10-=1;
+             }else if(r5 >=3){
+                  r5-=3;
+             }
+             else{
+              return false;
+             }
+          }
+      }
+      return true;
+  }
+}
 
 //   }
 // }
