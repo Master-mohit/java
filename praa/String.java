@@ -1563,6 +1563,28 @@ class Solution {
   }
 }
 
+// class Solution {
+//     public int maxDistance(List<List<Integer>> arrays) {
+        
+//         int maxDiff = Integer.MIN_VALUE;
+//         int maxValue = Integer.MIN_VALUE;
+//         int minValue = Integer.MAX_VALUE;
+
+//         for(List<Integer> arr: arrays){
+
+//             int min = arr.get(0);
+//             int max = arr.get(arr.size()-1);
+
+//             maxDiff = Math.max(maxDiff, maxValue == Integer.MIN_VALUE ? maxDiff : Math.abs(maxValue-min));
+//             maxDiff = Math.max(maxDiff, minValue == Integer.MAX_VALUE ? maxDiff : Math.abs(minValue-max));
+//             maxValue = Math.max(maxValue, max);
+//             minValue = Math.min(minValue, min);
+//         }
+
+//         return maxDiff;
+//     }
+// }
+
 //   }
 // }
  
