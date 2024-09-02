@@ -27,5 +27,31 @@ public class arra {
     //  return result;
 
     
+
+    class Solution {
+        public int[] findErrorNums(int[] nums) {
+            Set<Integer> set = new HashSet<>();
+            int result[] = new int[2];
+            
+            // Find the duplicate number
+            for(int chacha : nums){
+                if(!set.contains(chacha)){
+                    set.add(chacha);
+                } else {
+                    result[0] = chacha;
+                }
+            }
+            
+            // Find the missing number
+            for(int i = 1; i <= nums.length; i++){
+                if(!set.contains(i)){
+                    result[1] = i;
+                }
+            }
+            
+            return result;   
+        }
+    }
+    
     }
 }
