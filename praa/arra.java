@@ -100,3 +100,21 @@ LEFT JOIN Weather w2
 ON w1.recordDate = DATE_ADD(w2.recordDate, INTERVAL 1 DAY)
 WHERE w1.temperature > w2.temperature;
 }
+// class Solution {
+//     public List<List<Integer>> combine(int n, int r) {
+//         List<List<Integer>> result = new ArrayList<>();
+//         backTracking(result, new ArrayList<>(), n,r,1);
+//         return result;
+//     }
+//     public static void backTracking( List<List<Integer>> result, List<Integer> tempList, int n , int r, int start){
+//         if(tempList.size()==r){
+//             result.add(new ArrayList<>(tempList));
+//             return;
+//         }
+//         for(int i=start;i<=n;i++){
+//             tempList.add(i);
+//             backTracking(result, tempList, n, r, i+1);
+//             tempList.remove(tempList.size()-1);
+//         }
+//     }
+}
