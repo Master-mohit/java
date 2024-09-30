@@ -117,4 +117,16 @@ WHERE w1.temperature > w2.temperature;
 //             tempList.remove(tempList.size()-1);
 //         }
 //     }
+
+class Solution {
+    public boolean isPerfectSquare(int num) {
+        int ans=(int)Math.sqrt(num);
+        int m = ans*ans;
+        if(m==num)
+        {
+            return true;
+        }
+        return false;
+    }
+}
 }
