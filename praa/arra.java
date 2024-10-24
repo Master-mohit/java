@@ -135,3 +135,13 @@ class Solution {
 // SELECT a.person_name FROM
 // (SELECT person_name, SUM(weight) OVER(ORDER BY turn) AS cumulative_sum FROM Queue) a
 // WHERE a.cumulative_sum <= 1000 ORDER BY a.cumulative_sum DESC LIMIT 1;
+
+SELECT 
+    CASE 
+        WHEN id % 2 = 1 AND id < (SELECT MAX(id) FROM Seat) THEN id + 1
+        WHEN id % 2 = 0 THEN id - 1
+        ELSE id
+    END AS id, 
+    student
+FROM Seat
+ORDER BY id;
