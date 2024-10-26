@@ -1073,3 +1073,18 @@ import javax.swing.tree.TreeNode;
 // }
 
     
+roman.append("V");
+num -= 5;
+}
+
+while (num >= 4) {
+roman.append("IV");
+num -= 4;
+}
+
+while (num >= 1) {
+roman.append("I");
+num -= 1;
+}
+
+return roman.toString()
