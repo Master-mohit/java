@@ -16,3 +16,4 @@ public class Main {
         sc.close();  // Closing the scanner
     }
 }
+while (num >= 4) {
