@@ -75,3 +75,23 @@ class Solution {
     }
 }
 
+
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> next = new ArrayList<>();
+        preorder(root,next);
+        return next;
+    }
+    // helper class
+    private void preorder(TreeNode node, List<Integer> next) {
+
+        if(node == null){
+            return;
+        }
+        next.add(node.val); // add data
+        preorder(node.left,next)  ; // move left
+        preorder(node.right,next)  ; // move right
+
+         }
+
+}
