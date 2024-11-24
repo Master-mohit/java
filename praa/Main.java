@@ -95,3 +95,21 @@ class Solution {
          }
 
 }
+
+function book(){
+    new Promise((res, rej) => {
+        const isAvailable = true;
+        setTimeout(() => {
+            if(isAvailable){
+                res("sucessfully");
+            }
+            else {
+                rej("are yrr");
+            }
+        })
+    })
+}
+
+book()
+   .then((e) => console.log(e))
+   .catch((error) => console.log(error))
