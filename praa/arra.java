@@ -219,3 +219,70 @@ class Solution {
         return roman.toString();
     }
 }
+
+class Solution {
+    // Method to find the median of two sorted arrays.
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len1 = nums1.length, len2 = nums2.length;
+        int totalLen = len1 + len2; // Total length of both arrays combined.
+        double median;
+
+        // If the total length is odd, find the middle element.
+        if (totalLen % 2 == 1) {
+            int midIndex = totalLen / 2;
+            median = getKthElement(nums1, nums2, midIndex + 1); // +1 for 1-based index.
+        } else {
+            // If the total length is even, find the average of the two middle elements.
+            int midIndex1 = totalLen / 2 - 1;
+            int midIndex2 = totalLen / 2;
+            median = (getKthElement(nums1, nums2, midIndex1 + 1) +
+                      getKthElement(nums1, nums2, midIndex2 + 1)) / 2.0;
+        }
+
+        return median;
+    }
+
+    // Helper method to find the k-th smallest element in two sorted arrays.
+    public int getKthElement(int[] nums1, int[] nums2, int k) {
+        int len1 = nums1.length, len2 = nums2.length;
+        int i = 0, j = 0; // Starting indices for nums1 and nums2.
+
+        while (true) {
+            // If nums1 is exhausted, return the k-th element from nums2.
+            if (i == len1) {
+                return nums2[j + k - 1];
+            }
+
+            // If nums2 is exhausted, return the k-th element from nums1.
+            if (j == len2) {
+                return nums1[i + k - 1];
+            }
+
+            // If k == 1, return the smallest element between nums1[i] and nums2[j].
+            if (k == 1) {
+                return Math.min(nums1[i], nums2[j]);
+            }
+
+            // Divide k into two halves.
+            int half = k / 2;
+
+            // Calculate new indices for comparison.
+            int newI = Math.min(i + half, len1) - 1;
+            int newJ = Math.min(j + half, len2) - 1;
+
+            // Compare elements at new indices.
+            int v1 = nums1[newI];
+            int v2 = nums2[newJ];
+
+            if (v1 <= v2) {
+                // Exclude the left half of nums1 up to newI (inclusive).
+                k -= (newI - i + 1);
+                i = newI + 1;
+            } else {
+                // Exclude the left half of nums2 up to newJ (inclusive).
+                k -= (newJ - j + 1);
+                j = newJ + 1;
+            }
+        }
+    }
+}
