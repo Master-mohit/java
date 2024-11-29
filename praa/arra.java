@@ -326,3 +326,25 @@ class Solution {
         return false;
     }
 }
+
+class Solution {
+    public void rotate(int[][] matrix) 
+    {
+        int n = matrix.length;
+        int rot[][] = new int[n][n];
+          for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                {
+                    rot[j][n-1-i] = matrix[i][j];
+                }
+            }
+          }
+
+
+          for (int i = 0; i < rot.length; i++) {
+            for (int j = 0; j < rot[0].length; j++) {
+                 matrix[i][j] =  rot[i][j];
+            }
+          }
+    }
+}
