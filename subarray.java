@@ -1088,3 +1088,116 @@ num -= 1;
 }
 
 return roman.toString()
+
+public int getKthElement(int[] nums1, int[] nums2, int k) {
+    int len1 = nums1.length, len2 = nums2.length;
+    int i = 0, j = 0; // Starting indices for nums1 and nums2.
+
+    while (true) {
+        // If nums1 is exhausted, return the k-th element from nums2.
+        if (i == len1) {
+            return nums2[j + k - 1];
+        }
+
+        // If nums2 is exhausted, return the k-th element from nums1.
+        if (j == len2) {
+            return nums1[i + k - 1];
+        }
+
+        // If k == 1, return the smallest element between nums1[i] and nums2[j].
+        if (k == 1) {
+            return Math.min(nums1[i], nums2[j]);
+        }
+
+        // Divide k into two halves.
+        int half = k / 2;
+
+        // Calculate new indices for comparison.
+        int newI = Math.min(i + half, len1) - 1;
+        int newJ = Math.min(j + half, len2) - 1;
+
+        // Compare elements at new indices.
+        int v1 = nums1[newI];
+        int v2 = nums2[newJ];
+
+        if (v1 <= v2) {
+            // Exclude the left half of nums1 up to newI (inclusive).
+            k -= (newI - i + 1);
+            i = newI + 1;
+        } else {
+            // Exclude the left half of nums2 up to newJ (inclusive).
+            k -= (newJ - j + 1);
+            j = newJ + 1;
+        }
+    }
+}
+}
+
+import java.math.BigInteger;
+class Solution {
+public String multiply(String num1, String num2) {
+    
+    BigInteger a=new BigInteger(num1);
+    BigInteger b=new BigInteger(num2);
+    return a.multiply(b).toString();
+
+}
+}
+
+class Solution {
+public boolean searchMatrix(int[][] matrix, int target) {
+    int n = matrix.length, m = matrix[0].length, cur = 0;
+    for (int i = 0; i < n; i++) {
+        if (target == matrix[i][m - 1]) {
+            return true;
+        }
+        else if (target < matrix[i][m - 1]) {
+            cur= i;
+            break;
+        }
+    }
+    int start = 0 ,end = m-1;
+    while(start <= end){
+        int mid = (start + end)/2;
+        if(matrix[cur][mid] == target){
+            return true;
+        }
+        if(target > matrix[cur][mid]){
+            start = mid + 1;
+        }
+        else{
+            end = mid -1;
+        }
+    }
+    return false;
+}
+}
+
+class Solution {
+public void rotate(int[][] matrix) 
+{
+    int n = matrix.length;
+    int rot[][] = new int[n][n];
+      for (int i = 0; i < matrix.length; i++) {
+        for (int j = 0; j < matrix[0].length; j++) {
+            {
+                rot[j][n-1-i] = matrix[i][j];
+            }
+        }
+      }
+
+
+      for (int i = 0; i < rot.length; i++) {
+        for (int j = 0; j < rot[0].length; j++) {
+             matrix[i][j] =  rot[i][j];
+        }
+      }
+}
+}class Solution {
+public int titleToNumber(String columnTitle) {
+    int res=0;
+    for(char c:columnTitle.toCharArray()){
+        res=res*26+(c-'A'+1);
+    }
+    return res;
+}
