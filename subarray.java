@@ -1240,3 +1240,58 @@ class Solution {
         reverse(nums,ind+1,n-1);
     }
 }
+
+class Pair {
+        private int row;
+        private int col;
+
+        Pair(int row, int col) {
+            this.row = row;
+            this.col = col;
+        }
+}
+
+class Solution {
+
+    private char[][] board;
+    private String word;
+
+    public boolean exist(char[][] board, String word) {
+
+        int row = board.length;
+        int col = board[0].length;
+        this.board = board;
+        this.word = word;
+
+        for(int r =0; r<row; r++)
+        {
+            for(int c=0; c<col; c++)
+            {
+                if (wordSearchDfs(r, c,0))
+                {
+                    return true;
+                }
+            }
+        }  
+        return false;     
+    }
+
+    public boolean wordSearchDfs(int r, int c, int i)
+    {
+        boolean res = false;
+        if(i == this.word.length())
+        {
+            return true;
+        }
+        if (r < 0 || c < 0 || r >= this.board.length || c >= this.board[0].length || board[r][c] != word.charAt(i)) {
+            return false;
+        }
+        char temp = board[r][c];
+        board[r][c] = '#';
+        res = wordSearchDfs(r+1, c, i+1) || wordSearchDfs(r, c+1, i+1) ||
+        wordSearchDfs(r-1, c, i+1) || wordSearchDfs(r, c-1, i+1);
+        board[r][c] = temp;
+        return res;
+       
+    }
+}
