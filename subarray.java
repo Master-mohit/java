@@ -1295,3 +1295,59 @@ class Solution {
        
     }
 }
+
+class Solution {
+    class Trie {
+        boolean isEnd;
+        Trie[] map;
+        Trie() {
+            this.isEnd = false;
+            this.map = new Trie[26];
+        }
+    }
+
+    Trie root;
+    Boolean[] dp;
+
+    public boolean wordBreak(String s, List<String> wordDict) {
+        root = new Trie();
+        for(String word : wordDict) 
+            populate(word);
+
+        int LEN = s.length();
+        dp = new Boolean[LEN];
+
+        return help(s, LEN, 0);
+    }
+
+    private void populate(String s) {
+        Trie cur = root;
+        for(int i = 0; i < s.length(); ++i) {
+            int idx = s.charAt(i) - 'a';
+            if(cur.map[idx] == null) 
+                cur.map[idx] = new Trie();
+            cur = cur.map[idx];
+        }
+        cur.isEnd = true;
+    }
+
+    private boolean help(String s, int LEN, int idx) {
+        if(idx >= LEN) return true;
+        if(dp[idx] != null) return dp[idx];
+
+        Trie cur = root;
+        int i = idx;
+
+        while(i < LEN) {
+            int k = s.charAt(i) - 'a';
+
+            if(cur.map[k] == null) break;
+            cur = cur.map[k];
+
+            if(cur.isEnd && help(s, LEN, i + 1)) 
+                return dp[idx] = true;
+            ++i;
+        }
+        return dp[idx] = false;
+    }
+}
