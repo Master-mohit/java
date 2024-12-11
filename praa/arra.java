@@ -2071,3 +2071,29 @@ class Solution {
         return result;
     }
 }
+
+class Solution {
+    public String[] findWords(String[] words) {
+        String firstRow = "qwertyuiop";
+        String secondRow = "asdfghjkl";
+        String thirdRow = "zxcvbnm";
+        List<String> list = new ArrayList<>();
+
+        for (String word : words) {
+            char ch = Character.toLowerCase(word.charAt(0));
+            String row = "";
+            row = (firstRow.indexOf(ch) != -1) ? firstRow : (secondRow.indexOf(ch) != -1 ? secondRow : thirdRow);
+            int count = 0;
+            for (char ch1 : word.toCharArray()) {
+                if (row.indexOf(Character.toLowerCase(ch1)) == -1) {
+                    break;
+                }
+                count++;
+            }
+            if (count == word.length())
+                list.add(word);
+
+        }
+        return list.toArray(new String[0]);
+    }
+}
