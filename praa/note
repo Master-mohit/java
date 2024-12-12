@@ -1,0 +1,31 @@
+Behavior of var, let, and const with Examples
+Case 1: Using var Before Declaration
+javascript
+console.log(a); // Output: undefined
+var a = 10;
+console.log(a); // Output: 10
+Explanation (For Interview):
+
+During compilation, var a is hoisted and initialized as undefined.
+That's why the first console.log(a) outputs undefined.
+After the assignment a = 10, the second console.log(a) outputs 10.
+
+Case 2: Using let Before Declaration
+javascript
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 20;
+console.log(b); // Output: 20
+Explanation (For Interview):-
+let b is hoisted but not initialized.
+Until the code execution reaches the line let b = 20;, the variable remains in the Temporal Dead Zone (TDZ).
+Accessing b before its declaration causes a ReferenceError.
+
+Case 3: Using const Before Declaration
+javascript
+Copy code
+console.log(c); // ReferenceError: Cannot access 'c' before initialization
+const c = 30;
+console.log(c); // Output: 30
+Explanation (For Interview):
+const behaves the same as let during hoisting, remaining in the TDZ until declared.
+Additionally, const requires initialization during declaration, otherwise, it throws an error.
