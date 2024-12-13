@@ -29,3 +29,10 @@ console.log(c); // Output: 30
 Explanation (For Interview):
 const behaves the same as let during hoisting, remaining in the TDZ until declared.
 Additionally, const requires initialization during declaration, otherwise, it throws an error.
+
+
+ARRAW FUNCTION:__________________________________
+const functionName = (parameters) => {
+  // Function body
+};
+
