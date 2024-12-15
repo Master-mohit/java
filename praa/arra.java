@@ -2151,3 +2151,33 @@ class Solution {
             return start;
         }
     }
+
+    class Solution {
+        public List<List<Integer>> permute(int[] nums) {
+            List<List<Integer>> permutations = new ArrayList<>();
+            backtrack(nums, 0, permutations);
+            return permutations;
+        }
+    
+        private void backtrack(int[] nums, int index, List<List<Integer>> permutations) {
+            if (index == nums.length) {
+                List<Integer> permutation = new ArrayList<>();
+                for (int num : nums) {
+                    permutation.add(num);
+                }
+                permutations.add(permutation);
+            }
+    
+            for (int i = index; i < nums.length; i++) {
+                swap(nums, index, i);
+                backtrack(nums, index + 1, permutations);
+                swap(nums, index, i);
+            }
+        }
+    
+        private void swap(int[] nums, int i, int j) {
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+        }
+    }
