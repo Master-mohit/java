@@ -2181,3 +2181,59 @@ class Solution {
             nums[j] = temp;
         }
     }
+
+
+    class MyQueue {
+        Stack<Integer> queue;
+    
+        public MyQueue() {
+            queue = new Stack<>();
+        }
+    
+        public int removeLast(){
+            if (queue.size() == 1){
+                return queue.pop();
+            }
+            int top = queue.pop();
+            int last = removeLast();
+            queue.push(top);   
+            return last;
+        }
+        public void addLast(int ele){
+            if (queue.isEmpty()){
+                queue.add(ele);
+                return;
+            }
+            int top = queue.pop();
+            addLast(ele);
+            queue.push(top);
+        }
+        
+        public void push(int x) {
+            queue.push(x);
+        }
+        
+        public int pop() {
+            int ele = removeLast();
+            return ele;
+        }
+        
+        public int peek() {
+            int last = removeLast();
+            addLast(last);
+            return last;
+        }
+        
+        public boolean empty() {
+            return queue.isEmpty();
+        }
+    }
+    
+    /**
+     * Your MyQueue object will be instantiated and called as such:
+     * MyQueue obj = new MyQueue();
+     * obj.push(x);
+     * int param_2 = obj.pop();
+     * int param_3 = obj.peek();
+     * boolean param_4 = obj.empty();
+     */
