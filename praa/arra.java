@@ -2255,3 +2255,19 @@ class Solution {
         return m.toString(7);
     }
 }
+
+class Solution {
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        HashMap<Integer,Integer> map=new HashMap<>();
+       for(int i=0;i<matrix.length;i++){
+        for(int j=0;j<matrix[0].length;j++){
+            if(map.get(j-i)==null)
+            map.put(j-i,matrix[i][j]);
+            else if(map.get(j-i)!=matrix[i][j])
+            return false;
+        }
+       } 
+    //    System.out.print(map.toString());
+       return true;
+    }
+}
