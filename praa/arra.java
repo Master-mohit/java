@@ -2293,3 +2293,30 @@ class Solution {
         return ans;
     }
 }
+
+
+class Solution {
+    public static int maxAscendingSum(int[] nums) {
+        if (nums.length == 1) return nums[0];
+        int max = 0;
+        for(int i = 0; i<nums.length-1;i++){
+            int sum = nums[i];
+           for(int j = i+1; j<nums.length;j++){
+            if(nums[j]>nums[i]){
+                sum+=nums[j];
+            }
+
+            if(sum>max){
+                max = sum;
+            }
+           
+            if(nums[j]<=nums[i]) break;
+            
+            i=j;
+           }
+            
+
+        }
+        return max;
+    }
+}
