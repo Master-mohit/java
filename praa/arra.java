@@ -2357,3 +2357,33 @@ class Solution {
         return letters[0];
     }
 }
+
+class Solution {
+    public boolean canFormArray(int[] arr, int[][] pieces) {
+        HashMap<Integer,Integer> mp=new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            mp.put(arr[i],i);
+        }
+        for(int i=0;i<pieces.length;i++){
+               if(pieces[i].length==1){
+                    if(!mp.containsKey(pieces[i][0])){
+                        return false;
+                    }
+                }
+                else{
+                  for(int j=0;j<pieces[i].length-1;j++){
+                       if(!mp.containsKey(pieces[i][j])){
+                        return false;
+                       }
+                       else if(!mp.containsKey(pieces[i][j+1])){
+                        return false;
+                       }
+                       else if(mp.get(pieces[i][j+1])-mp.get(pieces[i][j])!=1){
+                        return false;
+                       }
+                   }
+               }
+            }
+            return true;
+        }
+    }
