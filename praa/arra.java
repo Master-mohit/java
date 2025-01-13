@@ -2387,3 +2387,43 @@ class Solution {
             return true;
         }
     }
+
+    import java.util.*;
+
+class Solution {
+    public String[] findRelativeRanks(int[] score) {
+        // Create a copy of the score array and sort it in descending order
+        int[] sorted = Arrays.copyOf(score, score.length);
+        Arrays.sort(sorted);
+        // Reverse the sorted array to get descending order
+        for (int i = 0, j = sorted.length - 1; i < j; i++, j--) {
+            int temp = sorted[i];
+            sorted[i] = sorted[j];
+            sorted[j] = temp;
+        }
+
+        // Map to store the index of each score
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for (int i = 0; i < score.length; i++) {
+            hm.put(score[i], i);
+        }
+
+        // Result array to store ranks
+        String[] ans = new String[score.length];
+
+        // Assign ranks based on the sorted array
+        for (int i = 0; i < sorted.length; i++) {
+            if (i == 0) {
+                ans[hm.get(sorted[i])] = "Gold Medal";
+            } else if (i == 1) {
+                ans[hm.get(sorted[i])] = "Silver Medal";
+            } else if (i == 2) {
+                ans[hm.get(sorted[i])] = "Bronze Medal";
+            } else {
+                ans[hm.get(sorted[i])] = String.valueOf(i + 1);
+            }
+        }
+
+        return ans;
+    }
+}
