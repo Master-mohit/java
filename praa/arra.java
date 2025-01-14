@@ -2427,3 +2427,36 @@ class Solution {
         return ans;
     }
 }
+
+class Solution {
+    public List<Integer> twoOutOfThree(int[] nums1, int[] nums2, int[] nums3) {
+        HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
+    
+        for (int num : nums1) {
+            map.putIfAbsent(num, new HashSet<>());
+            map.get(num).add(1);
+        }
+        
+        for (int num : nums2) {
+            map.putIfAbsent(num, new HashSet<>());
+            map.get(num).add(2);
+        }
+        
+
+        for (int num : nums3) {
+            map.putIfAbsent(num, new HashSet<>());
+            map.get(num).add(3);
+        }
+        
+ 
+        List<Integer> result = new ArrayList<>();
+        
+        for (Map.Entry<Integer, HashSet<Integer>> entry : map.entrySet()) {
+            if (entry.getValue().size() >= 2) {
+                result.add(entry.getKey());
+            }
+        }
+        
+        return result;
+    }
+}
